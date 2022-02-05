@@ -7,26 +7,7 @@
 
 import XCTest
 import Domain
-
-class RemoteReadActive {
-    private let url: URL
-    private let httpClient: HttpClientGet
-    
-    init(url: URL, httpClient: HttpClientGet){
-        self.url = url
-        self.httpClient = httpClient
-    }
-    
-    func read(readActiveModels: [ReadActiveModel]) {
-        let data = try? JSONEncoder().encode(readActiveModels)
-        httpClient.get(to: self.url, with: data)
-    }
-}
-
-//SOLID - "I -> Interface Segregation Principle (ISP)
-protocol HttpClientGet {
-    func get(to url: URL, with data: Data?)
-}
+import Data
 
 class RemoteReadActiveTests: XCTestCase {
 
@@ -41,7 +22,6 @@ class RemoteReadActiveTests: XCTestCase {
     func test_read_should_call_httpClient_with_correct_data() {
         let (sut, httpClientSpy) = makeSut()
         let readActiveModels = makeReadActiveModels()
-        //let data = try? JSONEncoder().encode(readActiveModels)
         let data = toData(readActiveModels)
         sut.read(readActiveModels: readActiveModels)
         XCTAssertEqual(httpClientSpy.data, data)

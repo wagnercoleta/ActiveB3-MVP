@@ -12,7 +12,7 @@ import Data
 class RemoteReadActiveTests: XCTestCase {
 
     func test_read_should_call_httpClient_with_correct_url() {
-        let url = URL(string: "http://any-url.com")!
+        let url = makeUrl()
         let (sut, httpClientSpy) = makeSut(url: url)
         let readActiveModels = makeReadActiveModels()
         sut.read(readActiveModels: readActiveModels) { _ in }
@@ -46,7 +46,7 @@ class RemoteReadActiveTests: XCTestCase {
     func test_read_should_complete_with_error_if_client_completes_with_invalid_data() {
         let (sut, httpClientSpy) = makeSut()
         expect(sut, completeWith: .failure(.unexpected), when: {
-            httpClientSpy.completeWithData(Data("invalid_data_json".utf8))
+            httpClientSpy.completeWithData(makeInvalidData())
         })
     }
     
@@ -61,6 +61,14 @@ extension RemoteReadActiveTests {
     
     func toData(_ activeModels: [ActiveModel]) -> Data? {
         return try? JSONEncoder().encode(activeModels)
+    }
+    
+    func makeUrl() -> URL {
+        return URL(string: "http://any-url.com")!
+    }
+    
+    func makeInvalidData() -> Data {
+        return Data("invalid_data_json".utf8)
     }
     
     func makeSut(url: URL = URL(string: "http://any-url.com")!) -> (sut: RemoteReadActive, httpClientSpy: HttpClientSpy)  {

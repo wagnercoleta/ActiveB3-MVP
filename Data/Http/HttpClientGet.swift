@@ -9,5 +9,5 @@ import Foundation
 
 //SOLID - "I -> Interface Segregation Principle (ISP)
 public protocol HttpClientGet {
-    func get(to url: URL, with data: Data?)
+    func get(to url: URL, with data: Data?, completion: @escaping (HttpError) -> Void)
 }

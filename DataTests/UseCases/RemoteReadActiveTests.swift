@@ -15,7 +15,7 @@ class RemoteReadActiveTests: XCTestCase {
         let url = URL(string: "http://any-url.com")!
         let (sut, httpClientSpy) = makeSut(url: url)
         let readActiveModels = makeReadActiveModels()
-        sut.read(readActiveModels: readActiveModels)
+        sut.read(readActiveModels: readActiveModels) { _ in }
         XCTAssertEqual(httpClientSpy.urls, [url])
     }
     
@@ -23,8 +23,20 @@ class RemoteReadActiveTests: XCTestCase {
         let (sut, httpClientSpy) = makeSut()
         let readActiveModels = makeReadActiveModels()
         let data = toData(readActiveModels)
-        sut.read(readActiveModels: readActiveModels)
+        sut.read(readActiveModels: readActiveModels) { _ in }
         XCTAssertEqual(httpClientSpy.data, data)
+    }
+    
+    func test_read_should_complete_with_error_if_client_fails() {
+        let (sut, httpClientSpy) = makeSut()
+        let readActiveModels = makeReadActiveModels()
+        let exp = expectation(description: "waiting-async")//async
+        sut.read(readActiveModels: readActiveModels) { error in 
+            XCTAssertEqual(error, .unexpected)
+            exp.fulfill()
+        }
+        httpClientSpy.completeWithError(.noConnectivity)
+        wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
     }
 }
 
@@ -49,10 +61,16 @@ extension RemoteReadActiveTests {
     class HttpClientSpy: HttpClientGet {
         var urls = [URL]()
         var data: Data?
+        var completion: ((HttpError) -> Void)?
         
-        func get(to url: URL, with data: Data?) {
+        func get(to url: URL, with data: Data?, completion: @escaping (HttpError) -> Void) {
             self.urls.append(url)
             self.data = data
+            self.completion = completion
+        }
+        
+        func completeWithError(_ error: HttpError){
+            completion?(error)
         }
     }
 }

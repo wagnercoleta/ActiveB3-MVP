@@ -41,7 +41,8 @@ class RemoteReadActiveTests: XCTestCase {
     func test_read_should_call_httpClient_with_correct_data() {
         let (sut, httpClientSpy) = makeSut()
         let readActiveModels = makeReadActiveModels()
-        let data = try? JSONEncoder().encode(readActiveModels)
+        //let data = try? JSONEncoder().encode(readActiveModels)
+        let data = toData(readActiveModels)
         sut.read(readActiveModels: readActiveModels)
         XCTAssertEqual(httpClientSpy.data, data)
     }
@@ -49,6 +50,10 @@ class RemoteReadActiveTests: XCTestCase {
 
 //Helper TestsClass
 extension RemoteReadActiveTests {
+    
+    func toData(_ readActiveModels: [ReadActiveModel]) -> Data? {
+        return try? JSONEncoder().encode(readActiveModels)
+    }
     
     func makeSut(url: URL = URL(string: "http://any-url.com")!) -> (sut: RemoteReadActive, httpClientSpy: HttpClientSpy)  {
         let httpClientSpy = HttpClientSpy()

@@ -13,6 +13,7 @@
 		DDDFC4B227AEA7CF0062CE1E /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC48927AEA3290062CE1E /* Domain.framework */; };
 		DDDFC4B327AEA7CF0062CE1E /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC48927AEA3290062CE1E /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDDFC4B827AEAA7A0062CE1E /* ReadActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4B727AEAA7A0062CE1E /* ReadActive.swift */; };
+		DDDFC4BA27AEF6850062CE1E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4B927AEF6850062CE1E /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		DDDFC4A727AEA7860062CE1E /* RemoteReadActiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteReadActiveTests.swift; sourceTree = "<group>"; };
 		DDDFC4A927AEA7860062CE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDDFC4B727AEAA7A0062CE1E /* ReadActive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadActive.swift; sourceTree = "<group>"; };
+		DDDFC4B927AEF6850062CE1E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		DDDFC48A27AEA3290062CE1E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				DDDFC4B927AEF6850062CE1E /* Model.swift */,
 				DDDFC4B727AEAA7A0062CE1E /* ReadActive.swift */,
 				DDDFC49327AEA7220062CE1E /* ActiveModel.swift */,
 				DDDFC48C27AEA3290062CE1E /* Info.plist */,
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDDFC4BA27AEF6850062CE1E /* Model.swift in Sources */,
 				DDDFC49427AEA7220062CE1E /* ActiveModel.swift in Sources */,
 				DDDFC4B827AEAA7A0062CE1E /* ReadActive.swift in Sources */,
 			);

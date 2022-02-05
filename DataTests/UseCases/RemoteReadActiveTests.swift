@@ -29,49 +29,25 @@ class RemoteReadActiveTests: XCTestCase {
     
     func test_read_should_complete_with_error_if_client_completes_with_error() {
         let (sut, httpClientSpy) = makeSut()
-        let readActiveModels = makeReadActiveModels()
-        let exp = expectation(description: "waiting-async")//async
-        sut.read(readActiveModels: readActiveModels) { result in
-            switch result {
-                case .failure(let error): XCTAssertEqual(error, .unexpected)
-                case .success: XCTFail("Expected error received \(result) instead")
-            }
-            exp.fulfill()
-        }
-        httpClientSpy.completeWithError(.noConnectivity)
-        wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.completeWithError(.noConnectivity)
+        })
     }
     
     func test_read_should_complete_with_active_if_client_completes_with_valid_data() {
         let (sut, httpClientSpy) = makeSut()
-        let readActiveModels = makeReadActiveModels()
         let expectedActives = makeActiveModels()
-        let exp = expectation(description: "waiting-async")//async
-        sut.read(readActiveModels: readActiveModels) { result in
-            switch result {
-                case .failure: XCTFail("Expected success received \(result) instead")
-                case .success(let receivedActives): XCTAssertEqual(receivedActives, expectedActives)
-            }
-            exp.fulfill()
-        }
-        let data = toData(expectedActives)!
-        httpClientSpy.completeWithData(data)
-        wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
+        expect(sut, completeWith: .success(expectedActives), when: {
+            let data = toData(expectedActives)!
+            httpClientSpy.completeWithData(data)
+        })
     }
     
     func test_read_should_complete_with_error_if_client_completes_with_invalid_data() {
         let (sut, httpClientSpy) = makeSut()
-        let readActiveModels = makeReadActiveModels()
-        let exp = expectation(description: "waiting-async")//async
-        sut.read(readActiveModels: readActiveModels) { result in
-            switch result {
-                case .failure(let error): XCTAssertEqual(error, .unexpected)
-                case .success: XCTFail("Expected error received \(result) instead")
-            }
-            exp.fulfill()
-        }
-        httpClientSpy.completeWithData(Data("invalid_data_json".utf8))
-        wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.completeWithData(Data("invalid_data_json".utf8))
+        })
     }
     
 }
@@ -91,6 +67,21 @@ extension RemoteReadActiveTests {
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
         return (sut, httpClientSpy)
+    }
+    
+    func expect(_ sut: RemoteReadActive, completeWith expectedResult: Result<[ActiveModel], DomainError>, when action: () -> Void){
+        let readActiveModels = makeReadActiveModels()
+        let exp = expectation(description: "waiting-async")//async
+        sut.read(readActiveModels: readActiveModels) { receivedResult in
+            switch (expectedResult, receivedResult) {
+                case (.failure(let expectedError), .failure(let receivedError)): XCTAssertEqual(expectedError, receivedError)
+                case (.success(let expectedActive), .success(let receivedActive)): XCTAssertEqual(expectedActive, receivedActive)
+                default: XCTFail("Expected \(expectedResult) received \(receivedResult) instead")
+            }
+            exp.fulfill()
+        }
+        action()
+        wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
     }
     
     func makeReadActiveModels() -> [ReadActiveModel]{

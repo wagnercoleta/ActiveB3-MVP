@@ -35,7 +35,10 @@ class RemoteReadActiveTests: XCTestCase {
         sut.read()
         XCTAssertEqual(httpClientSpy.url, url)
     }
+}
 
+//Helper TestsClass
+extension RemoteReadActiveTests {
     class HttpClientSpy: HttpClientGet {
         var url: URL?
         

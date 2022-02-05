@@ -11,7 +11,11 @@ public protocol ReadActive {
     func read(readActiveModel: [ReadActiveModel], completion: @escaping (Result<[ActiveModel], Error>) -> Void)
 }
 
-public struct ReadActiveModel {
+public struct ReadActiveModel: Encodable {
     public let code: String
+    
+    public init(code: String) {
+        self.code = code
+    }
 }
 

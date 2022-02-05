@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Domain
 
 class RemoteReadActive {
     private let url: URL
@@ -16,14 +17,15 @@ class RemoteReadActive {
         self.httpClient = httpClient
     }
     
-    func read() {
-        httpClient.get(url: url)
+    func read(readActiveModels: [ReadActiveModel]) {
+        let data = try? JSONEncoder().encode(readActiveModels)
+        httpClient.get(to: self.url, with: data)
     }
 }
 
 //SOLID - "I -> Interface Segregation Principle (ISP)
 protocol HttpClientGet {
-    func get(url: URL)
+    func get(to url: URL, with data: Data?)
 }
 
 class RemoteReadActiveTests: XCTestCase {
@@ -32,8 +34,19 @@ class RemoteReadActiveTests: XCTestCase {
         let url = URL(string: "http://any-url.com")!
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
-        sut.read()
+        let readActiveModels:[ReadActiveModel] = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]
+        sut.read(readActiveModels: readActiveModels)
         XCTAssertEqual(httpClientSpy.url, url)
+    }
+    
+    func test_read_should_call_httpClient_with_correct_data() {
+        let url = URL(string: "http://any-url.com")!
+        let httpClientSpy = HttpClientSpy()
+        let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
+        let readActiveModels:[ReadActiveModel] = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]
+        let data = try? JSONEncoder().encode(readActiveModels)
+        sut.read(readActiveModels: readActiveModels)
+        XCTAssertEqual(httpClientSpy.data, data)
     }
 }
 
@@ -41,9 +54,11 @@ class RemoteReadActiveTests: XCTestCase {
 extension RemoteReadActiveTests {
     class HttpClientSpy: HttpClientGet {
         var url: URL?
+        var data: Data?
         
-        func get(url: URL) {
+        func get(to url: URL, with data: Data?) {
             self.url = url
+            self.data = data
         }
     }
 }

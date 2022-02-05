@@ -42,7 +42,7 @@ class RemoteReadActiveTests: XCTestCase {
         wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
     }
     
-    func test_read_should_complete_with_active_if_client_completes_with_data() {
+    func test_read_should_complete_with_active_if_client_completes_with_valid_data() {
         let (sut, httpClientSpy) = makeSut()
         let readActiveModels = makeReadActiveModels()
         let expectedActives = makeActiveModels()
@@ -56,6 +56,21 @@ class RemoteReadActiveTests: XCTestCase {
         }
         let data = toData(expectedActives)!
         httpClientSpy.completeWithData(data)
+        wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
+    }
+    
+    func test_read_should_complete_with_error_if_client_completes_with_invalid_data() {
+        let (sut, httpClientSpy) = makeSut()
+        let readActiveModels = makeReadActiveModels()
+        let exp = expectation(description: "waiting-async")//async
+        sut.read(readActiveModels: readActiveModels) { result in
+            switch result {
+                case .failure(let error): XCTAssertEqual(error, .unexpected)
+                case .success: XCTFail("Expected error received \(result) instead")
+            }
+            exp.fulfill()
+        }
+        httpClientSpy.completeWithData(Data("invalid_data_json".utf8))
         wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
     }
     

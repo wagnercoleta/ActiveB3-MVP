@@ -25,6 +25,8 @@ public final class RemoteReadActive: ReadActive {
                 case .success(let data):
                     if let activeModels = try? JSONDecoder().decode([ActiveModel].self, from: data) {
                         completion(.success(activeModels))
+                    } else {
+                        completion(.failure(.unexpected))
                     }
                 case .failure: completion(.failure(.unexpected))
             }

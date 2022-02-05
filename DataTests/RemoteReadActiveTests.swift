@@ -9,9 +9,9 @@ import XCTest
 
 class RemoteReadActive {
     private let url: URL
-    private let httpClient: HttpClient
+    private let httpClient: HttpClientGet
     
-    init(url: URL, httpClient: HttpClient){
+    init(url: URL, httpClient: HttpClientGet){
         self.url = url
         self.httpClient = httpClient
     }
@@ -21,7 +21,8 @@ class RemoteReadActive {
     }
 }
 
-protocol HttpClient {
+//SOLID - "I -> Interface Segregation Principle (ISP)
+protocol HttpClientGet {
     func get(url: URL)
 }
 
@@ -35,7 +36,7 @@ class RemoteReadActiveTests: XCTestCase {
         XCTAssertEqual(httpClientSpy.url, url)
     }
 
-    class HttpClientSpy: HttpClient {
+    class HttpClientSpy: HttpClientGet {
         var url: URL?
         
         func get(url: URL) {

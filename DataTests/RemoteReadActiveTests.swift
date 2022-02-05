@@ -28,7 +28,7 @@ protocol HttpClientGet {
 
 class RemoteReadActiveTests: XCTestCase {
 
-    func test_() {
+    func test_read_should_call_httpClient_with_correct_url() {
         let url = URL(string: "http://any-url.com")!
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)

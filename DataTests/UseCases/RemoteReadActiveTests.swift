@@ -71,20 +71,30 @@ extension RemoteReadActiveTests {
         return Data("invalid_data_json".utf8)
     }
     
-    func makeSut(url: URL = URL(string: "http://any-url.com")!) -> (sut: RemoteReadActive, httpClientSpy: HttpClientSpy)  {
+    func makeSut(url: URL = URL(string: "http://any-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteReadActive, httpClientSpy: HttpClientSpy)  {
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
+        checkMemoryLeak(for: sut, file: file, line: line)
+        checkMemoryLeak(for: httpClientSpy, file: file, line: line)
         return (sut, httpClientSpy)
     }
     
-    func expect(_ sut: RemoteReadActive, completeWith expectedResult: Result<[ActiveModel], DomainError>, when action: () -> Void){
+    func checkMemoryLeak(for instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        //INI - TU para verificar memory leak (vazamento de memória - referência ciclica)
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, file: file, line: line)
+        }
+        //FIM - TU
+    }
+    
+    func expect(_ sut: RemoteReadActive, completeWith expectedResult: Result<[ActiveModel], DomainError>, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line){
         let readActiveModels = makeReadActiveModels()
         let exp = expectation(description: "waiting-async")//async
         sut.read(readActiveModels: readActiveModels) { receivedResult in
             switch (expectedResult, receivedResult) {
-                case (.failure(let expectedError), .failure(let receivedError)): XCTAssertEqual(expectedError, receivedError)
-                case (.success(let expectedActive), .success(let receivedActive)): XCTAssertEqual(expectedActive, receivedActive)
-                default: XCTFail("Expected \(expectedResult) received \(receivedResult) instead")
+            case (.failure(let expectedError), .failure(let receivedError)): XCTAssertEqual(expectedError, receivedError, file: file, line: line)
+                case (.success(let expectedActive), .success(let receivedActive)): XCTAssertEqual(expectedActive, receivedActive, file: file, line: line)
+                default: XCTFail("Expected \(expectedResult) received \(receivedResult) instead", file: file, line: line)
             }
             exp.fulfill()
         }

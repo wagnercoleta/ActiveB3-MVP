@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct ActiveModel {
-    let id: String
-    let code: String
-    let name: String
-    let price: Double
-    let priceAlert: Double
-    let variation: Double
-    let operationLarger: Bool
+public struct ActiveModel {
+    public let id: String
+    public let code: String
+    public let name: String
+    public let price: Double
+    public let priceAlert: Double
+    public let variation: Double
+    public let operationLarger: Bool
 }

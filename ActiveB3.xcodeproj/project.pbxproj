@@ -109,9 +109,9 @@
 		DDDFC48A27AEA3290062CE1E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				DDDFC4B727AEAA7A0062CE1E /* ReadActive.swift */,
 				DDDFC49327AEA7220062CE1E /* ActiveModel.swift */,
 				DDDFC48C27AEA3290062CE1E /* Info.plist */,
-				DDDFC4B727AEAA7A0062CE1E /* ReadActive.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";

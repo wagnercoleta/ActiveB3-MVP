@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol ReadActive {
+public protocol ReadActive {
     func read(readActiveModel: [ReadActiveModel], completion: @escaping (Result<[ActiveModel], Error>) -> Void)
 }
 
-struct ReadActiveModel {
-    let code: String
+public struct ReadActiveModel {
+    public let code: String
 }
 

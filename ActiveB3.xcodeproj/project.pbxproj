@@ -115,9 +115,8 @@
 		DDDFC48A27AEA3290062CE1E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				DDDFC4B927AEF6850062CE1E /* Model.swift */,
-				DDDFC4B727AEAA7A0062CE1E /* ReadActive.swift */,
-				DDDFC49327AEA7220062CE1E /* ActiveModel.swift */,
+				DDDFC4BF27AEF8FC0062CE1E /* UseCases */,
+				DDDFC4C027AEF90D0062CE1E /* Models */,
 				DDDFC48C27AEA3290062CE1E /* Info.plist */,
 			);
 			path = Domain;
@@ -126,8 +125,8 @@
 		DDDFC49B27AEA7860062CE1E /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				DDDFC4BB27AEF7C10062CE1E /* RemoteReadActive.swift */,
-				DDDFC4BD27AEF8330062CE1E /* HttpClientGet.swift */,
+				DDDFC4C127AEF93C0062CE1E /* UseCases */,
+				DDDFC4C227AEF9470062CE1E /* Http */,
 				DDDFC49D27AEA7860062CE1E /* Info.plist */,
 			);
 			path = Data;
@@ -136,7 +135,7 @@
 		DDDFC4A627AEA7860062CE1E /* DataTests */ = {
 			isa = PBXGroup;
 			children = (
-				DDDFC4A727AEA7860062CE1E /* RemoteReadActiveTests.swift */,
+				DDDFC4C327AEF95F0062CE1E /* UseCases */,
 				DDDFC4A927AEA7860062CE1E /* Info.plist */,
 			);
 			path = DataTests;
@@ -147,6 +146,47 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDDFC4BF27AEF8FC0062CE1E /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				DDDFC4B727AEAA7A0062CE1E /* ReadActive.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		DDDFC4C027AEF90D0062CE1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DDDFC4B927AEF6850062CE1E /* Model.swift */,
+				DDDFC49327AEA7220062CE1E /* ActiveModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DDDFC4C127AEF93C0062CE1E /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				DDDFC4BB27AEF7C10062CE1E /* RemoteReadActive.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		DDDFC4C227AEF9470062CE1E /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				DDDFC4BD27AEF8330062CE1E /* HttpClientGet.swift */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		DDDFC4C327AEF95F0062CE1E /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				DDDFC4A727AEA7860062CE1E /* RemoteReadActiveTests.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -75,28 +75,12 @@ extension RemoteReadActiveTests {
         return try? JSONEncoder().encode(activeModels)
     }
     
-    func makeUrl() -> URL {
-        return URL(string: "http://any-url.com")!
-    }
-    
-    func makeInvalidData() -> Data {
-        return Data("invalid_data_json".utf8)
-    }
-    
     func makeSut(url: URL = URL(string: "http://any-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteReadActive, httpClientSpy: HttpClientSpy)  {
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
         checkMemoryLeak(for: sut, file: file, line: line)
         checkMemoryLeak(for: httpClientSpy, file: file, line: line)
         return (sut, httpClientSpy)
-    }
-    
-    func checkMemoryLeak(for instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        //INI - TU para verificar memory leak (vazamento de memória - referência ciclica)
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, file: file, line: line)
-        }
-        //FIM - TU
     }
     
     func expect(_ sut: RemoteReadActive, completeWith expectedResult: Result<[ActiveModel], DomainError>, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line){
@@ -117,33 +101,5 @@ extension RemoteReadActiveTests {
     func makeReadActiveModels() -> [ReadActiveModel]{
         let result:[ReadActiveModel] = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]
         return result
-    }
-    
-    func makeActiveModels() -> [ActiveModel]{
-        let result:[ActiveModel] = [
-            ActiveModel(id: "1", code: "PETR4", name: "PETROBRAS", price: 26.20, priceAlert: 27.00, variation: 2.00, operationLarger: false),
-            ActiveModel(id: "2", code: "MGLU3", name: "MAGALU", price: 7.00, priceAlert: 10.50, variation: 5.00, operationLarger: false)
-        ]
-        return result
-    }
-    
-    class HttpClientSpy: HttpClientGet {
-        var urls = [URL]()
-        var data: Data?
-        var completion: ((Result<Data, HttpError>) -> Void)?
-        
-        func get(to url: URL, with data: Data?, completion: @escaping (Result<Data, HttpError>) -> Void) {
-            self.urls.append(url)
-            self.data = data
-            self.completion = completion
-        }
-        
-        func completeWithError(_ error: HttpError){
-            completion?(.failure(error))
-        }
-        
-        func completeWithData(_ data: Data){
-            completion?(.success(data))
-        }
     }
 }

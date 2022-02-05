@@ -34,11 +34,28 @@ class RemoteReadActiveTests: XCTestCase {
         sut.read(readActiveModels: readActiveModels) { result in
             switch result {
                 case .failure(let error): XCTAssertEqual(error, .unexpected)
-                case .success: XCTFail("Expected error receive \(result) instead")
+                case .success: XCTFail("Expected error received \(result) instead")
             }
             exp.fulfill()
         }
         httpClientSpy.completeWithError(.noConnectivity)
+        wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
+    }
+    
+    func test_read_should_complete_with_active_if_client_completes_with_data() {
+        let (sut, httpClientSpy) = makeSut()
+        let readActiveModels = makeReadActiveModels()
+        let expectedActives = makeActiveModels()
+        let exp = expectation(description: "waiting-async")//async
+        sut.read(readActiveModels: readActiveModels) { result in
+            switch result {
+                case .failure: XCTFail("Expected success received \(result) instead")
+                case .success(let receivedActives): XCTAssertEqual(receivedActives, expectedActives)
+            }
+            exp.fulfill()
+        }
+        let data = toData(expectedActives)!
+        httpClientSpy.completeWithData(data)
         wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
     }
     
@@ -51,6 +68,10 @@ extension RemoteReadActiveTests {
         return try? JSONEncoder().encode(readActiveModels)
     }
     
+    func toData(_ activeModels: [ActiveModel]) -> Data? {
+        return try? JSONEncoder().encode(activeModels)
+    }
+    
     func makeSut(url: URL = URL(string: "http://any-url.com")!) -> (sut: RemoteReadActive, httpClientSpy: HttpClientSpy)  {
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
@@ -59,6 +80,14 @@ extension RemoteReadActiveTests {
     
     func makeReadActiveModels() -> [ReadActiveModel]{
         let result:[ReadActiveModel] = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]
+        return result
+    }
+    
+    func makeActiveModels() -> [ActiveModel]{
+        let result:[ActiveModel] = [
+            ActiveModel(id: "1", code: "PETR4", name: "PETROBRAS", price: 26.20, priceAlert: 27.00, variation: 2.00, operationLarger: false),
+            ActiveModel(id: "2", code: "MGLU3", name: "MAGALU", price: 7.00, priceAlert: 10.50, variation: 5.00, operationLarger: false)
+        ]
         return result
     }
     
@@ -75,6 +104,10 @@ extension RemoteReadActiveTests {
         
         func completeWithError(_ error: HttpError){
             completion?(.failure(error))
+        }
+        
+        func completeWithData(_ data: Data){
+            completion?(.success(data))
         }
     }
 }

@@ -20,8 +20,15 @@ public final class RemoteReadActive: ReadActive {
     public func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel], DomainError>) -> Void) {
         
         let data = try? JSONEncoder().encode(readActiveModels)
-        httpClient.get(to: self.url, with: data) { error in
-            completion(.failure(.unexpected))
+        httpClient.get(to: self.url, with: data) { result in
+            switch result {
+                case .success(let data):
+                    if let activeModels = try? JSONDecoder().decode([ActiveModel].self, from: data) {
+                        completion(.success(activeModels))
+                    }
+                case .failure: completion(.failure(.unexpected))
+            }
         }
     }
 }
+

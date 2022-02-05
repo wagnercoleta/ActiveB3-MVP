@@ -34,7 +34,7 @@ class RemoteReadActiveTests: XCTestCase {
         let url = URL(string: "http://any-url.com")!
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
-        let readActiveModels:[ReadActiveModel] = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]
+        let readActiveModels = makeReadActiveModels()
         sut.read(readActiveModels: readActiveModels)
         XCTAssertEqual(httpClientSpy.url, url)
     }
@@ -43,7 +43,7 @@ class RemoteReadActiveTests: XCTestCase {
         let url = URL(string: "http://any-url.com")!
         let httpClientSpy = HttpClientSpy()
         let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
-        let readActiveModels:[ReadActiveModel] = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]
+        let readActiveModels = makeReadActiveModels()
         let data = try? JSONEncoder().encode(readActiveModels)
         sut.read(readActiveModels: readActiveModels)
         XCTAssertEqual(httpClientSpy.data, data)
@@ -52,6 +52,12 @@ class RemoteReadActiveTests: XCTestCase {
 
 //Helper TestsClass
 extension RemoteReadActiveTests {
+    
+    func makeReadActiveModels() -> [ReadActiveModel]{
+        let result:[ReadActiveModel] = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]
+        return result
+    }
+    
     class HttpClientSpy: HttpClientGet {
         var url: URL?
         var data: Data?

@@ -8,7 +8,7 @@
 import Foundation
 import Domain
 
-public final class RemoteReadActive {
+public final class RemoteReadActive: ReadActive {
     private let url: URL
     private let httpClient: HttpClientGet
     
@@ -17,10 +17,11 @@ public final class RemoteReadActive {
         self.httpClient = httpClient
     }
     
-    public func read(readActiveModels: [ReadActiveModel], completion: @escaping (DomainError) -> Void) {
+    public func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel], DomainError>) -> Void) {
+        
         let data = try? JSONEncoder().encode(readActiveModels)
         httpClient.get(to: self.url, with: data) { error in
-            completion(.unexpected)
+            completion(.failure(.unexpected))
         }
     }
 }

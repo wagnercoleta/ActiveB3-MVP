@@ -27,17 +27,21 @@ class RemoteReadActiveTests: XCTestCase {
         XCTAssertEqual(httpClientSpy.data, data)
     }
     
-    func test_read_should_complete_with_error_if_client_fails() {
+    func test_read_should_complete_with_error_if_client_completes_with_error() {
         let (sut, httpClientSpy) = makeSut()
         let readActiveModels = makeReadActiveModels()
         let exp = expectation(description: "waiting-async")//async
-        sut.read(readActiveModels: readActiveModels) { error in 
-            XCTAssertEqual(error, .unexpected)
+        sut.read(readActiveModels: readActiveModels) { result in
+            switch result {
+                case .failure(let error): XCTAssertEqual(error, .unexpected)
+                case .success: XCTFail("Expected error receive \(result) instead")
+            }
             exp.fulfill()
         }
         httpClientSpy.completeWithError(.noConnectivity)
         wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
     }
+    
 }
 
 //Helper TestsClass
@@ -61,16 +65,16 @@ extension RemoteReadActiveTests {
     class HttpClientSpy: HttpClientGet {
         var urls = [URL]()
         var data: Data?
-        var completion: ((HttpError) -> Void)?
+        var completion: ((Result<Data, HttpError>) -> Void)?
         
-        func get(to url: URL, with data: Data?, completion: @escaping (HttpError) -> Void) {
+        func get(to url: URL, with data: Data?, completion: @escaping (Result<Data, HttpError>) -> Void) {
             self.urls.append(url)
             self.data = data
             self.completion = completion
         }
         
         func completeWithError(_ error: HttpError){
-            completion?(error)
+            completion?(.failure(error))
         }
     }
 }

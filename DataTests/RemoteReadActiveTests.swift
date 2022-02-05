@@ -32,17 +32,14 @@ class RemoteReadActiveTests: XCTestCase {
 
     func test_read_should_call_httpClient_with_correct_url() {
         let url = URL(string: "http://any-url.com")!
-        let httpClientSpy = HttpClientSpy()
-        let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
+        let (sut, httpClientSpy) = makeSut(url: url)
         let readActiveModels = makeReadActiveModels()
         sut.read(readActiveModels: readActiveModels)
         XCTAssertEqual(httpClientSpy.url, url)
     }
     
     func test_read_should_call_httpClient_with_correct_data() {
-        let url = URL(string: "http://any-url.com")!
-        let httpClientSpy = HttpClientSpy()
-        let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
+        let (sut, httpClientSpy) = makeSut()
         let readActiveModels = makeReadActiveModels()
         let data = try? JSONEncoder().encode(readActiveModels)
         sut.read(readActiveModels: readActiveModels)
@@ -52,6 +49,12 @@ class RemoteReadActiveTests: XCTestCase {
 
 //Helper TestsClass
 extension RemoteReadActiveTests {
+    
+    func makeSut(url: URL = URL(string: "http://any-url.com")!) -> (sut: RemoteReadActive, httpClientSpy: HttpClientSpy)  {
+        let httpClientSpy = HttpClientSpy()
+        let sut = RemoteReadActive(url: url, httpClient: httpClientSpy)
+        return (sut, httpClientSpy)
+    }
     
     func makeReadActiveModels() -> [ReadActiveModel]{
         let result:[ReadActiveModel] = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]

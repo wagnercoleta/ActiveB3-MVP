@@ -14,3 +14,7 @@ func makeUrl() -> URL {
 func makeInvalidData() -> Data {
     return Data("invalid_data_json".utf8)
 }
+
+func makeError() -> Error {
+    return NSError(domain: "any_error", code: 0)
+}

@@ -19,14 +19,6 @@ class RemoteReadActiveTests: XCTestCase {
         XCTAssertEqual(httpClientSpy.urls, [url])
     }
     
-    func test_read_should_call_httpClient_with_correct_data() {
-        let (sut, httpClientSpy) = makeSut()
-        let readActiveModels = makeReadActiveModels()
-        let data = toData(readActiveModels)
-        sut.read(readActiveModels: readActiveModels) { _ in }
-        XCTAssertEqual(httpClientSpy.data, data)
-    }
-    
     func test_read_should_complete_with_error_if_client_completes_with_error() {
         let (sut, httpClientSpy) = makeSut()
         expect(sut, completeWith: .failure(.unexpected), when: {
@@ -53,7 +45,7 @@ class RemoteReadActiveTests: XCTestCase {
     func test_read_should_not_complete_if_sut_has_been_deallocated() {
         let httpClientSpy = HttpClientSpy()
         var sut: RemoteReadActive? = RemoteReadActive(url: makeUrl(), httpClient: httpClientSpy)
-        var resultTemp: Result<[ActiveModel], DomainError>?
+        var resultTemp: Result<[ActiveModel]?, DomainError>?
         sut?.read(readActiveModels: makeReadActiveModels()) { result in
             resultTemp = result
         }

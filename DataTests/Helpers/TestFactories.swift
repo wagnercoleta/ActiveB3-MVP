@@ -18,3 +18,11 @@ func makeInvalidData() -> Data {
 func makeError() -> Error {
     return NSError(domain: "any_error", code: 0)
 }
+
+func makeValidData() -> Data {
+    return Data("{[{\"code\":\"\"PETR4\"\"}]}".utf8)
+}
+
+func makeHttpResponse(statusCode: Int = 200) -> HTTPURLResponse {
+    return HTTPURLResponse(url: makeUrl(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+}

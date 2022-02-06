@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol ReadActive {
-    func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel], DomainError>) -> Void)
+    func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel]?, DomainError>) -> Void)
 }
 
 public struct ReadActiveModel: Model {

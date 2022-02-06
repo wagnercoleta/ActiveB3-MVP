@@ -23,6 +23,10 @@ func makeValidData() -> Data {
     return Data("{[{\"code\":\"\"PETR4\"\"}]}".utf8)
 }
 
+func makeEmptyData() -> Data {
+    return Data()
+}
+
 func makeHttpResponse(statusCode: Int = 200) -> HTTPURLResponse {
     return HTTPURLResponse(url: makeUrl(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
 }

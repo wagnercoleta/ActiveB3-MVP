@@ -13,11 +13,17 @@ public final class AlamofireAdapter: HttpClientGet {
     
     private let session: Session
     
-    public init(session: Session = .default){
+    public init(session: Session = .default, contentType: String = "application/xml"){
         self.session = session
+        
+        self.session.sessionConfiguration.allowsCellularAccess = true
+        self.session.sessionConfiguration.httpAdditionalHeaders = ["Content-Type": contentType]
+        self.session.sessionConfiguration.timeoutIntervalForRequest = 30.0
+        self.session.sessionConfiguration.httpMaximumConnectionsPerHost = 5
     }
     
     public func get(to url: URL, completion: @escaping (Result<Data?, HttpError>) -> Void) {
+        
         session.request(url, method: .get).responseData { dataResponse in
             guard let statusCode = dataResponse.response?.statusCode else {
                 return completion(.failure(.noConnectivity))

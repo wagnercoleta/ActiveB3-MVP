@@ -7,9 +7,50 @@
 
 import XCTest
 
+class ActivePresenter {
+    private let alertView: AlertView
+    
+    init(alertView: AlertView){
+        self.alertView = alertView
+    }
+    
+    func listActive(viewModel: ReadActiveViewModel){
+        if viewModel.codes == nil || viewModel.codes!.count <= 0 {
+            alertView.showMessage(viewModel: AlertViewModel(title: "Falha na leitura dos ativos", message: "A lista de códigos dos ativos a serem retornados é obrigatório."))
+        }
+    }
+}
+
+protocol AlertView {
+    func showMessage(viewModel: AlertViewModel)
+}
+
+struct AlertViewModel: Equatable {
+    var title: String
+    var message: String
+}
+
+struct ReadActiveViewModel {
+    var codes: [String]?
+}
+
 class ActivePresenterTests: XCTestCase {
 
-    func test_() {
+    func test_should_show_error_message_if_array_active_is_not_provided() {
+        let alertViewSpy = AlertViewSpy()
+        let sut = ActivePresenter(alertView: alertViewSpy)
+        let readActiveViewModel = ReadActiveViewModel(codes: [])
+        sut.listActive(viewModel: readActiveViewModel)
+        XCTAssertEqual(alertViewSpy.viewModel, AlertViewModel(title: "Falha na leitura dos ativos", message: "A lista de códigos dos ativos a serem retornados é obrigatório."))
+    }
+}
+
+extension ActivePresenterTests {
+    class AlertViewSpy: AlertView {
+        var viewModel: AlertViewModel?
         
+        func showMessage(viewModel: AlertViewModel) {
+            self.viewModel = viewModel
+        }
     }
 }

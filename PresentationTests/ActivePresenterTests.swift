@@ -15,9 +15,16 @@ class ActivePresenter {
     }
     
     func listActive(viewModel: ReadActiveViewModel){
-        if viewModel.codes == nil || viewModel.codes!.count <= 0 {
-            alertView.showMessage(viewModel: AlertViewModel(title: "Falha na leitura dos ativos", message: "A lista de códigos dos ativos a serem retornados é obrigatório."))
+        if let message = validate(viewModel: viewModel) {
+            alertView.showMessage(viewModel: AlertViewModel(title: "Falha na leitura dos ativos", message: message))
         }
+    }
+    
+    private func validate(viewModel: ReadActiveViewModel) -> String? {
+        if viewModel.codes == nil || viewModel.codes!.count <= 0 {
+            return "A lista de códigos dos ativos a serem retornados é obrigatório."
+        }
+        return nil
     }
 }
 

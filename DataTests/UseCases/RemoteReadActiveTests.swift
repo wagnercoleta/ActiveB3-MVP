@@ -54,6 +54,15 @@ class RemoteReadActiveTests: XCTestCase {
         XCTAssertNil(resultTemp)
     }
     
+    func test_read_should_complete_extract_xml_at_data() {
+        let httpClientSpy = HttpClientSpy()
+        let sut = RemoteReadActive(url: makeUrl(), httpClient: httpClientSpy)
+        let data = makeActiveModelXML()!
+        let activeModels = sut.extractXMLtoResult(data: data)
+        XCTAssertNotNil(activeModels)
+        XCTAssert(activeModels!.count > 0)
+    }
+    
 }
 
 //Helper TestsClass

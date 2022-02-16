@@ -37,7 +37,7 @@ public final class RemoteReadActive: ReadActive {
         }
     }
     
-    func extractXMLtoResult(data: Data) -> [ActiveModel]? {
+    public func extractXMLtoResult(data: Data) -> [ActiveModel]? {
         
         if let file = String(data: data, encoding: .utf8) {
             

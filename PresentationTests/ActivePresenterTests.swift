@@ -37,8 +37,7 @@ struct ReadActiveViewModel {
 class ActivePresenterTests: XCTestCase {
 
     func test_should_show_error_message_if_array_active_is_not_provided() {
-        let alertViewSpy = AlertViewSpy()
-        let sut = ActivePresenter(alertView: alertViewSpy)
+        let (sut, alertViewSpy) = makeSut()
         let readActiveViewModel = ReadActiveViewModel(codes: [])
         sut.listActive(viewModel: readActiveViewModel)
         XCTAssertEqual(alertViewSpy.viewModel, AlertViewModel(title: "Falha na leitura dos ativos", message: "A lista de códigos dos ativos a serem retornados é obrigatório."))
@@ -46,6 +45,13 @@ class ActivePresenterTests: XCTestCase {
 }
 
 extension ActivePresenterTests {
+    
+    func makeSut() -> (sut: ActivePresenter, alertViewSpy: AlertViewSpy){
+        let alertViewSpy = AlertViewSpy()
+        let sut = ActivePresenter(alertView: alertViewSpy)
+        return (sut, alertViewSpy)
+    }
+    
     class AlertViewSpy: AlertView {
         var viewModel: AlertViewModel?
         

@@ -13,6 +13,7 @@
 		DDA825D627BDC0D70039CA19 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC48927AEA3290062CE1E /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */; };
 		DDA825DE27BDC2780039CA19 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825DD27BDC2780039CA19 /* AlertView.swift */; };
+		DDA825E327BDC8E30039CA19 /* ActiveValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */; };
 		DDDFC49427AEA7220062CE1E /* ActiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC49327AEA7220062CE1E /* ActiveModel.swift */; };
 		DDDFC4A327AEA7860062CE1E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC49A27AEA7860062CE1E /* Data.framework */; };
 		DDDFC4A827AEA7860062CE1E /* RemoteReadActiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4A727AEA7860062CE1E /* RemoteReadActiveTests.swift */; };
@@ -152,6 +153,7 @@
 		DD4DC30227BC7AD900C5A08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePresenter.swift; sourceTree = "<group>"; };
 		DDA825DD27BDC2780039CA19 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidator.swift; sourceTree = "<group>"; };
 		DDDFC48927AEA3290062CE1E /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDFC48C27AEA3290062CE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDDFC49327AEA7220062CE1E /* ActiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveModel.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		DD4DC2F427BC7AD900C5A08C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DDA825E127BDC8CF0039CA19 /* Validators */,
 				DDA825DC27BDC2500039CA19 /* Views */,
 				DDA825DF27BDC2DC0039CA19 /* Presenters */,
 				DD4DC2F627BC7AD900C5A08C /* Info.plist */,
@@ -292,6 +295,14 @@
 				DD4DC30027BC7AD900C5A08C /* ActivePresenterTests.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		DDA825E127BDC8CF0039CA19 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 		DDDFC46F27AEA1C70062CE1E = {
@@ -809,6 +820,7 @@
 			files = (
 				DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */,
 				DDA825DE27BDC2780039CA19 /* AlertView.swift in Sources */,
+				DDA825E327BDC8E30039CA19 /* ActiveValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

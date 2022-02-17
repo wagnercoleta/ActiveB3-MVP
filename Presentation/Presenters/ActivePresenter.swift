@@ -9,14 +9,22 @@ import Foundation
 
 public final class ActivePresenter {
     private let alertView: AlertView
+    private let activeValidator: ActiveValidator
     
-    public init(alertView: AlertView){
+    public init(alertView: AlertView, activeValidator: ActiveValidator) {
         self.alertView = alertView
+        self.activeValidator = activeValidator
     }
     
     public func listActive(viewModel: ReadActiveViewModel){
         if let message = validate(viewModel: viewModel) {
             alertView.showMessage(viewModel: AlertViewModel(title: "Falha na leitura dos ativos", message: message))
+        }
+        
+        if let codes = viewModel.codes {
+            codes.forEach { code in
+                _ = activeValidator.isValid(active: code)
+            }
         }
     }
     

@@ -20,18 +20,25 @@ public final class ActivePresenter {
         if let message = validate(viewModel: viewModel) {
             alertView.showMessage(viewModel: AlertViewModel(title: "Falha na leitura dos ativos", message: message))
         }
-        
-        if let codes = viewModel.codes {
-            codes.forEach { code in
-                _ = activeValidator.isValid(active: code)
-            }
-        }
     }
     
     private func validate(viewModel: ReadActiveViewModel) -> String? {
         if viewModel.codes == nil || viewModel.codes!.count <= 0 {
             return "A lista de códigos dos ativos a serem retornados é obrigatório."
         }
+        
+        var isValid = true
+        if let codes = viewModel.codes {
+            codes.forEach { code in
+                if (isValid) {
+                    isValid = activeValidator.isValid(active: code)
+                }
+            }
+        }
+        if (!isValid) {
+            return "A lista de códigos dos ativos a serem retornados é inválido."
+        }
+        
         return nil
     }
 }

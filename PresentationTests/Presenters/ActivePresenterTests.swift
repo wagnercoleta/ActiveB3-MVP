@@ -19,9 +19,17 @@ class ActivePresenterTests: XCTestCase {
     
     func test_should_call_activeValidator_with_correct_active() {
         let (sut, _, activeValidatorSpy) = makeSut()
-        let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3])
+        let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3"])
         sut.listActive(viewModel: readActiveViewModel)
         XCTAssertEqual(activeValidatorSpy.codes, readActiveViewModel.codes)
+    }
+    
+    func test_should_show_error_message_if_activeValidator_is_not_provided() {
+        let (sut, alertViewSpy, activeValidatorSpy) = makeSut()
+        let readActiveViewModel = ReadActiveViewModel(codes: ["XPTO01", "XPTO02"])
+        activeValidatorSpy.isValid = false
+        sut.listActive(viewModel: readActiveViewModel)
+        XCTAssertEqual(alertViewSpy.viewModel, AlertViewModel(title: "Falha na leitura dos ativos", message: "A lista de códigos dos ativos a serem retornados é inválido."))
     }
 }
 

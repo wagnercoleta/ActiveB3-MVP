@@ -7,6 +7,12 @@
 
 import Foundation
 
+public struct ActivePresenterConstans {
+    public static let titleAlert = NSLocalizedString("Falha na leitura dos ativos", comment: "")
+    public static let messageActiveRequired = NSLocalizedString("A lista de códigos dos ativos a serem retornados é obrigatório.", comment: "")
+    public static let messageActiveInvalid = NSLocalizedString("A lista de códigos dos ativos a serem retornados é inválida.", comment: "")
+}
+
 public final class ActivePresenter {
     private let alertView: AlertView
     private let activeValidator: ActiveValidator
@@ -18,13 +24,13 @@ public final class ActivePresenter {
     
     public func listActive(viewModel: ReadActiveViewModel){
         if let message = validate(viewModel: viewModel) {
-            alertView.showMessage(viewModel: AlertViewModel(title: "Falha na leitura dos ativos", message: message))
+            alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleAlert, message: message))
         }
     }
     
     private func validate(viewModel: ReadActiveViewModel) -> String? {
         if viewModel.codes == nil || viewModel.codes!.count <= 0 {
-            return "A lista de códigos dos ativos a serem retornados é obrigatório."
+            return ActivePresenterConstans.messageActiveRequired
         }
         
         var isValid = true
@@ -36,7 +42,7 @@ public final class ActivePresenter {
             }
         }
         if (!isValid) {
-            return "A lista de códigos dos ativos a serem retornados é inválido."
+            return ActivePresenterConstans.messageActiveInvalid
         }
         
         return nil

@@ -13,6 +13,7 @@ final class ActiveViewController: UIViewController {
     
     @IBOutlet weak var loadingIncator: UIActivityIndicatorView!
     @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet weak var codeActiveTextField: UITextField!
     
     var listActive: ((ReadActiveViewModel) -> Void)?
     
@@ -26,7 +27,10 @@ final class ActiveViewController: UIViewController {
     }
     
     @objc private func loadButtonTapped() {
-        listActive?(ReadActiveViewModel(codes: ["PETR4", "MGLU3"]))
+        let codeActive = codeActiveTextField?.text
+        var codes = [String]()
+        codes.append(codeActive!)
+        listActive?(ReadActiveViewModel(codes: codes))
     }
 }
 

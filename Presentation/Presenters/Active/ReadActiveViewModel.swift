@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Domain
 
-public struct ReadActiveViewModel {
+public struct ReadActiveViewModel: Model {
     public var codes: [String]?
     
     public init(codes: [String]?){

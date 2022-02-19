@@ -7,6 +7,7 @@
 
 import XCTest
 import UIKit
+import Presentation
 @testable import UI
 
 class ActiveViewControllerTests: XCTestCase {
@@ -16,5 +17,12 @@ class ActiveViewControllerTests: XCTestCase {
         let sut = sb.instantiateViewController(identifier: "ActiveViewController") as! ActiveViewController
         sut.loadViewIfNeeded()
         XCTAssertEqual(sut.loadingIncator?.isAnimating, false)
+    }
+    
+    func test_sut_implements_loadingView() {
+        let sb = UIStoryboard(name: "Active", bundle: Bundle(for: ActiveViewController.self))
+        let sut = sb.instantiateViewController(identifier: "ActiveViewController") as! ActiveViewController
+        let sutImplementsLoadingView = (sut as LoadingView)
+        XCTAssertNotNil(sutImplementsLoadingView)
     }
 }

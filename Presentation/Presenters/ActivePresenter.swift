@@ -48,6 +48,7 @@ public final class ActivePresenter {
                 case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleError, message: ActivePresenterConstans.messageErrorInesperado))
                 case .success: break
                 }
+                self.loadingView.display(viewModel: LoadingViewModel(isLoading: false))
             }
         }
     }

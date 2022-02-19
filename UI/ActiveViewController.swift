@@ -12,9 +12,21 @@ import Presentation
 final class ActiveViewController: UIViewController {
     
     @IBOutlet weak var loadingIncator: UIActivityIndicatorView!
+    @IBOutlet weak var loadButton: UIButton!
+    
+    var listActive: ((ReadActiveViewModel) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    private func configure() {
+        loadButton?.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func loadButtonTapped() {
+        listActive?(ReadActiveViewModel(codes: ["PETR4", "MGLU3"]))
     }
 }
 

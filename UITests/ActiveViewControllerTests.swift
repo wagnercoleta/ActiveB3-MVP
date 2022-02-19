@@ -28,13 +28,38 @@ class ActiveViewControllerTests: XCTestCase {
         let sutImplementsAlertView = (sut as AlertView)
         XCTAssertNotNil(sutImplementsAlertView)
     }
+    
+    func test_loadButton_calls_active_on_tap() {
+        var callsCount = 0
+        let listActiveSpy: (ReadActiveViewModel) -> Void = { _ in
+            callsCount += 1
+        }
+        let sut = makeSut(listActiveSpy: listActiveSpy)
+        sut.loadButton?.simulateTap()
+        XCTAssertEqual(callsCount, 1)
+    }
 }
 
 extension ActiveViewControllerTests {
-    func makeSut() -> ActiveViewController {
+    func makeSut(listActiveSpy: ((ReadActiveViewModel) -> Void)? = nil) -> ActiveViewController {
         let sb = UIStoryboard(name: "Active", bundle: Bundle(for: ActiveViewController.self))
         let sut = sb.instantiateViewController(identifier: "ActiveViewController") as! ActiveViewController
+        sut.listActive = listActiveSpy
         sut.loadViewIfNeeded()
         return sut
+    }
+}
+
+extension UIControl {
+    func simulate(event: UIControl.Event) {
+        allTargets.forEach { target in
+            actions(forTarget: target, forControlEvent: event)?.forEach({ action in
+                (target as NSObject).perform(Selector(action))
+            })
+        }
+    }
+    
+    func simulateTap() {
+        simulate(event: .touchUpInside)
     }
 }

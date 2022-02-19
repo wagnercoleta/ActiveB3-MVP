@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Presentation
 
 final class ActiveViewController: UIViewController {
     
@@ -14,5 +15,15 @@ final class ActiveViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+extension ActiveViewController: LoadingView {
+    func display(viewModel: LoadingViewModel) {
+        if viewModel.isLoading {
+            loadingIncator?.startAnimating()
+        } else {
+            loadingIncator?.stopAnimating()
+        }
     }
 }

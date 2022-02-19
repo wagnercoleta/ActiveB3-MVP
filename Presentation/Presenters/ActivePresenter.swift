@@ -21,11 +21,14 @@ public final class ActivePresenter {
     private let alertView: AlertView
     private let activeValidator: ActiveValidator
     private let readActive: ReadActive
+    private let loadingView: LoadingView
     
-    public init(alertView: AlertView, activeValidator: ActiveValidator, readActive: ReadActive) {
+    public init(alertView: AlertView, activeValidator: ActiveValidator, readActive: ReadActive,
+                loadingView: LoadingView) {
         self.alertView = alertView
         self.activeValidator = activeValidator
         self.readActive = readActive
+        self.loadingView = loadingView
     }
     
     public func listActive(viewModel: ReadActiveViewModel){
@@ -36,6 +39,9 @@ public final class ActivePresenter {
             viewModel.codes?.forEach({ code in
                 readActiveModels.append(ReadActiveModel(code: code))
             })
+            
+            loadingView.display(viewModel: LoadingViewModel(isLoading: true))
+            
             readActive.read(readActiveModels: readActiveModels) { [weak self] result in
                 guard let self = self else { return }
                 switch result {

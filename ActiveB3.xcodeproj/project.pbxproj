@@ -16,6 +16,7 @@
 		DDA825E327BDC8E30039CA19 /* ActiveValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */; };
 		DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4D427AF33CE0062CE1E /* ActiveModelFactory.swift */; };
 		DDAC2DA927C16D1A00B2DB8D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DA827C16D1A00B2DB8D /* LoadingView.swift */; };
+		DDAC2DAC27C17B1500B2DB8D /* ReadActiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */; };
 		DDDFC49427AEA7220062CE1E /* ActiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC49327AEA7220062CE1E /* ActiveModel.swift */; };
 		DDDFC4A327AEA7860062CE1E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC49A27AEA7860062CE1E /* Data.framework */; };
 		DDDFC4A827AEA7860062CE1E /* RemoteReadActiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4A727AEA7860062CE1E /* RemoteReadActiveTests.swift */; };
@@ -157,6 +158,7 @@
 		DDA825DD27BDC2780039CA19 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidator.swift; sourceTree = "<group>"; };
 		DDAC2DA827C16D1A00B2DB8D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadActiveViewModel.swift; sourceTree = "<group>"; };
 		DDDFC48927AEA3290062CE1E /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDFC48C27AEA3290062CE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDDFC49327AEA7220062CE1E /* ActiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveModel.swift; sourceTree = "<group>"; };
@@ -288,7 +290,7 @@
 		DDA825DF27BDC2DC0039CA19 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */,
+				DDAC2DAA27C17AC700B2DB8D /* Active */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -307,6 +309,15 @@
 				DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */,
 			);
 			path = Validators;
+			sourceTree = "<group>";
+		};
+		DDAC2DAA27C17AC700B2DB8D /* Active */ = {
+			isa = PBXGroup;
+			children = (
+				DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */,
+				DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */,
+			);
+			path = Active;
 			sourceTree = "<group>";
 		};
 		DDDFC46F27AEA1C70062CE1E = {
@@ -822,6 +833,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDAC2DAC27C17B1500B2DB8D /* ReadActiveViewModel.swift in Sources */,
 				DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */,
 				DDAC2DA927C16D1A00B2DB8D /* LoadingView.swift in Sources */,
 				DDA825DE27BDC2780039CA19 /* AlertView.swift in Sources */,

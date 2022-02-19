@@ -76,11 +76,3 @@ public final class ActivePresenter {
         return nil
     }
 }
-
-public struct ReadActiveViewModel {
-    public var codes: [String]?
-    
-    public init(codes: [String]?){
-        self.codes = codes
-    }
-}

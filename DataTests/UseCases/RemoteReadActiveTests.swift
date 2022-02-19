@@ -98,9 +98,4 @@ extension RemoteReadActiveTests {
         action()
         wait(for: [exp], timeout: 1)//aguarda 1s para executar o exp.fulfill() async
     }
-    
-    func makeReadActiveModels() -> [ReadActiveModel]{
-        let result:[ReadActiveModel] = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]
-        return result
-    }
 }

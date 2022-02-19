@@ -15,3 +15,8 @@ func makeActiveModels() -> [ActiveModel]{
     ]
     return result
 }
+
+func makeReadActiveModels() -> [ReadActiveModel]{
+    let result = [ReadActiveModel(code: "PETR4"), ReadActiveModel(code: "MGLU3")]
+    return result
+}

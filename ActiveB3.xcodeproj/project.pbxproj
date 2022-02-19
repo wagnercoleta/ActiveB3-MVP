@@ -14,6 +14,7 @@
 		DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */; };
 		DDA825DE27BDC2780039CA19 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825DD27BDC2780039CA19 /* AlertView.swift */; };
 		DDA825E327BDC8E30039CA19 /* ActiveValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */; };
+		DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4D427AF33CE0062CE1E /* ActiveModelFactory.swift */; };
 		DDDFC49427AEA7220062CE1E /* ActiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC49327AEA7220062CE1E /* ActiveModel.swift */; };
 		DDDFC4A327AEA7860062CE1E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC49A27AEA7860062CE1E /* Data.framework */; };
 		DDDFC4A827AEA7860062CE1E /* RemoteReadActiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4A727AEA7860062CE1E /* RemoteReadActiveTests.swift */; };
@@ -828,6 +829,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */,
 				DD4DC30127BC7AD900C5A08C /* ActivePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

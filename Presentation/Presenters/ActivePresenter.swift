@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Domain
 
 public struct ActivePresenterConstans {
     public static let titleAlert = NSLocalizedString("Falha na leitura dos ativos", comment: "")
@@ -16,15 +17,25 @@ public struct ActivePresenterConstans {
 public final class ActivePresenter {
     private let alertView: AlertView
     private let activeValidator: ActiveValidator
+    private let readActive: ReadActive
     
-    public init(alertView: AlertView, activeValidator: ActiveValidator) {
+    public init(alertView: AlertView, activeValidator: ActiveValidator, readActive: ReadActive) {
         self.alertView = alertView
         self.activeValidator = activeValidator
+        self.readActive = readActive
     }
     
     public func listActive(viewModel: ReadActiveViewModel){
         if let message = validate(viewModel: viewModel) {
             alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleAlert, message: message))
+        } else {
+            var readActiveModels = [ReadActiveModel]()
+            viewModel.codes?.forEach({ code in
+                readActiveModels.append(ReadActiveModel(code: code))
+            })
+            readActive.read(readActiveModels: readActiveModels) { result in
+                
+            }
         }
     }
     

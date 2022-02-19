@@ -70,11 +70,12 @@ class ActivePresenterTests: XCTestCase {
 
 extension ActivePresenterTests {
     
-    func makeSut() -> (sut: ActivePresenter, alertViewSpy: AlertViewSpy, activeValidatorSpy: ActiveValidatorSpy, readActiveSpy: ReadActiveSpy){
+    func makeSut(file: StaticString = #filePath, line: UInt = #line) -> (sut: ActivePresenter, alertViewSpy: AlertViewSpy, activeValidatorSpy: ActiveValidatorSpy, readActiveSpy: ReadActiveSpy){
         let alertViewSpy = AlertViewSpy()
         let activeValidatorSpy = ActiveValidatorSpy()
         let readActiveSpy = ReadActiveSpy()
         let sut = ActivePresenter(alertView: alertViewSpy, activeValidator: activeValidatorSpy, readActive: readActiveSpy)
+        checkMemoryLeak(for: sut, file: file, line: line)
         return (sut, alertViewSpy, activeValidatorSpy, readActiveSpy)
     }
     
@@ -124,5 +125,16 @@ extension ActivePresenterTests {
         func completeWithError(_ error: DomainError) {
             completion?(.failure(error))
         }
+    }
+}
+
+
+extension XCTestCase {
+    func checkMemoryLeak(for instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        //INI - TU para verificar memory leak (vazamento de memória - referência ciclica)
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, file: file, line: line)
+        }
+        //FIM - TU
     }
 }

@@ -36,7 +36,8 @@ public final class ActivePresenter {
             viewModel.codes?.forEach({ code in
                 readActiveModels.append(ReadActiveModel(code: code))
             })
-            readActive.read(readActiveModels: readActiveModels) { result in
+            readActive.read(readActiveModels: readActiveModels) { [weak self] result in
+                guard let self = self else { return }
                 switch result {
                 case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleError, message: ActivePresenterConstans.messageErrorInesperado))
                 case .success: break

@@ -10,8 +10,11 @@ import Domain
 
 public struct ActivePresenterConstans {
     public static let titleAlert = NSLocalizedString("Falha na leitura dos ativos", comment: "")
+    public static let titleError = NSLocalizedString("Error", comment: "")
+    
     public static let messageActiveRequired = NSLocalizedString("A lista de códigos dos ativos a serem retornados é obrigatório.", comment: "")
     public static let messageActiveInvalid = NSLocalizedString("A lista de códigos dos ativos a serem retornados é inválida.", comment: "")
+    public static let messageErrorInesperado = NSLocalizedString("Algo inesperado aconteceu, tente novamente mais tarde.", comment: "")
 }
 
 public final class ActivePresenter {
@@ -34,7 +37,10 @@ public final class ActivePresenter {
                 readActiveModels.append(ReadActiveModel(code: code))
             })
             readActive.read(readActiveModels: readActiveModels) { result in
-                
+                switch result {
+                case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleError, message: ActivePresenterConstans.messageErrorInesperado))
+                case .success: break
+                }
             }
         }
     }

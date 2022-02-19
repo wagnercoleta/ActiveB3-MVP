@@ -39,6 +39,14 @@ class ActivePresenterTests: XCTestCase {
         sut.listActive(viewModel: readActiveViewModel)
         XCTAssertEqual(readActiveSpy.readActiveModels, makeReadActiveModels())
     }
+    
+    func test_should_show_error_message_if_readActive_fails() {
+        let (sut, alertViewSpy, _, readActiveSpy) = makeSut()
+        let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3"])
+        sut.listActive(viewModel: readActiveViewModel)
+        readActiveSpy.completeWithError(.unexpected)
+        XCTAssertEqual(alertViewSpy.viewModel, AlertViewModel(title: ActivePresenterConstans.titleError, message: ActivePresenterConstans.messageErrorInesperado))
+    }
 }
 
 extension ActivePresenterTests {
@@ -79,9 +87,15 @@ extension ActivePresenterTests {
     
     class ReadActiveSpy: ReadActive {
         var readActiveModels: [ReadActiveModel]?
+        var completion: ((Result<[ActiveModel]?, DomainError>) -> Void)?
         
         func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel]?, DomainError>) -> Void) {
             self.readActiveModels = readActiveModels
+            self.completion = completion
+        }
+        
+        func completeWithError(_ error: DomainError) {
+            completion?(.failure(error))
         }
     }
 }

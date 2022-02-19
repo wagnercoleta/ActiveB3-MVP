@@ -27,3 +27,9 @@ extension ActiveViewController: LoadingView {
         }
     }
 }
+
+extension ActiveViewController: AlertView {
+    func showMessage(viewModel: AlertViewModel) {
+        
+    }
+}

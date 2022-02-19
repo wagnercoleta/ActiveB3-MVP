@@ -67,6 +67,20 @@ class ActivePresenterTests: XCTestCase {
         wait(for: [exp], timeout: 1)
     }
     
+    func test_should_show_success_message_if_readActive_succeeds() {
+        let (sut, alertViewSpy, _, readActiveSpy, _) = makeSut()
+        let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3"])
+        let exp = expectation(description: "waiting")
+        alertViewSpy.observe { [weak self] viewModel in
+            XCTAssertEqual(viewModel, self?.makeAlertViewModel(ActivePresenterConstans.titleSuccess,
+                                                               ActivePresenterConstans.messageSuccess))
+            exp.fulfill()
+        }
+        sut.listActive(viewModel: readActiveViewModel)
+        readActiveSpy.completeWithActives(makeActiveModels())
+        wait(for: [exp], timeout: 1)
+    }
+    
     func test_should_show_loading_before_and_after_readActive() {
         let (sut, _, _, readActiveSpy, loadingViewSpy) = makeSut()
         let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3"])
@@ -146,6 +160,10 @@ extension ActivePresenterTests {
         
         func completeWithError(_ error: DomainError) {
             completion?(.failure(error))
+        }
+        
+        func completeWithActives(_ actives: [ActiveModel]) {
+            completion?(.success(actives))
         }
     }
     

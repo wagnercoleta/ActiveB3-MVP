@@ -11,10 +11,12 @@ import Domain
 public struct ActivePresenterConstans {
     public static let titleAlert = NSLocalizedString("Falha na leitura dos ativos", comment: "")
     public static let titleError = NSLocalizedString("Error", comment: "")
+    public static let titleSuccess = NSLocalizedString("Sucesso", comment: "")
     
     public static let messageActiveRequired = NSLocalizedString("A lista de códigos dos ativos a serem retornados é obrigatório.", comment: "")
     public static let messageActiveInvalid = NSLocalizedString("A lista de códigos dos ativos a serem retornados é inválida.", comment: "")
     public static let messageErrorInesperado = NSLocalizedString("Algo inesperado aconteceu, tente novamente mais tarde.", comment: "")
+    public static let messageSuccess = NSLocalizedString("Dados processados com sucesso.", comment: "")
 }
 
 public final class ActivePresenter {
@@ -46,8 +48,9 @@ public final class ActivePresenter {
                 guard let self = self else { return }
                 switch result {
                 case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleError, message: ActivePresenterConstans.messageErrorInesperado))
-                case .success: break
+                case .success: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleSuccess, message: ActivePresenterConstans.messageSuccess))
                 }
+                
                 self.loadingView.display(viewModel: LoadingViewModel(isLoading: false))
             }
         }

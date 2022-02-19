@@ -37,12 +37,12 @@ public final class ActivePresenter {
         if let message = validate(viewModel: viewModel) {
             alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleAlert, message: message))
         } else {
+            loadingView.display(viewModel: LoadingViewModel(isLoading: true))
+            
             var readActiveModels = [ReadActiveModel]()
             viewModel.codes?.forEach({ code in
                 readActiveModels.append(ReadActiveModel(code: code))
             })
-            
-            loadingView.display(viewModel: LoadingViewModel(isLoading: true))
             
             readActive.read(readActiveModels: readActiveModels) { [weak self] result in
                 guard let self = self else { return }

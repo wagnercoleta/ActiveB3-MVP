@@ -17,6 +17,10 @@
 		DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4D427AF33CE0062CE1E /* ActiveModelFactory.swift */; };
 		DDAC2DA927C16D1A00B2DB8D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DA827C16D1A00B2DB8D /* LoadingView.swift */; };
 		DDAC2DAC27C17B1500B2DB8D /* ReadActiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */; };
+		DDAC2DB027C17D7400B2DB8D /* AlertViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DAF27C17D7400B2DB8D /* AlertViewSpy.swift */; };
+		DDAC2DB327C17E0400B2DB8D /* ActiveValidatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */; };
+		DDAC2DB627C17E5400B2DB8D /* LoadingViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB527C17E5400B2DB8D /* LoadingViewSpy.swift */; };
+		DDAC2DB927C17ED900B2DB8D /* ReadActiveSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB827C17ED900B2DB8D /* ReadActiveSpy.swift */; };
 		DDDFC49427AEA7220062CE1E /* ActiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC49327AEA7220062CE1E /* ActiveModel.swift */; };
 		DDDFC4A327AEA7860062CE1E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC49A27AEA7860062CE1E /* Data.framework */; };
 		DDDFC4A827AEA7860062CE1E /* RemoteReadActiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4A727AEA7860062CE1E /* RemoteReadActiveTests.swift */; };
@@ -159,6 +163,10 @@
 		DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidator.swift; sourceTree = "<group>"; };
 		DDAC2DA827C16D1A00B2DB8D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadActiveViewModel.swift; sourceTree = "<group>"; };
+		DDAC2DAF27C17D7400B2DB8D /* AlertViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewSpy.swift; sourceTree = "<group>"; };
+		DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidatorSpy.swift; sourceTree = "<group>"; };
+		DDAC2DB527C17E5400B2DB8D /* LoadingViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewSpy.swift; sourceTree = "<group>"; };
+		DDAC2DB827C17ED900B2DB8D /* ReadActiveSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadActiveSpy.swift; sourceTree = "<group>"; };
 		DDDFC48927AEA3290062CE1E /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDFC48C27AEA3290062CE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDDFC49327AEA7220062CE1E /* ActiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveModel.swift; sourceTree = "<group>"; };
@@ -272,6 +280,9 @@
 		DD4DC2FF27BC7AD900C5A08C /* PresentationTests */ = {
 			isa = PBXGroup;
 			children = (
+				DDAC2DB727C17ECB00B2DB8D /* UseCases */,
+				DDAC2DB127C17DF000B2DB8D /* Validators */,
+				DDAC2DAE27C17D5900B2DB8D /* Views */,
 				DDA825E027BDC4750039CA19 /* Presenters */,
 				DD4DC30227BC7AD900C5A08C /* Info.plist */,
 			);
@@ -298,7 +309,7 @@
 		DDA825E027BDC4750039CA19 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				DD4DC30027BC7AD900C5A08C /* ActivePresenterTests.swift */,
+				DDAC2DAD27C17CCF00B2DB8D /* Active */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -318,6 +329,39 @@
 				DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */,
 			);
 			path = Active;
+			sourceTree = "<group>";
+		};
+		DDAC2DAD27C17CCF00B2DB8D /* Active */ = {
+			isa = PBXGroup;
+			children = (
+				DD4DC30027BC7AD900C5A08C /* ActivePresenterTests.swift */,
+			);
+			path = Active;
+			sourceTree = "<group>";
+		};
+		DDAC2DAE27C17D5900B2DB8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDAC2DAF27C17D7400B2DB8D /* AlertViewSpy.swift */,
+				DDAC2DB527C17E5400B2DB8D /* LoadingViewSpy.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DDAC2DB127C17DF000B2DB8D /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		DDAC2DB727C17ECB00B2DB8D /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				DDAC2DB827C17ED900B2DB8D /* ReadActiveSpy.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		DDDFC46F27AEA1C70062CE1E = {
@@ -845,8 +889,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDAC2DB927C17ED900B2DB8D /* ReadActiveSpy.swift in Sources */,
+				DDAC2DB627C17E5400B2DB8D /* LoadingViewSpy.swift in Sources */,
 				DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */,
+				DDAC2DB327C17E0400B2DB8D /* ActiveValidatorSpy.swift in Sources */,
 				DD4DC30127BC7AD900C5A08C /* ActivePresenterTests.swift in Sources */,
+				DDAC2DB027C17D7400B2DB8D /* AlertViewSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

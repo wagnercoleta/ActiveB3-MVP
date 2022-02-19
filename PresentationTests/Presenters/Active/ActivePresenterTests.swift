@@ -118,66 +118,6 @@ extension ActivePresenterTests {
     func makeAlertViewModel(_ title: String, _ message: String) -> AlertViewModel {
         return AlertViewModel(title: title, message: message)
     }
-    
-    class AlertViewSpy: AlertView {
-        var emit: ((AlertViewModel) -> Void)?
-        
-        func observe(completion: @escaping (AlertViewModel) -> Void) {
-            self.emit = completion
-        }
-        
-        func showMessage(viewModel: AlertViewModel) {
-            self.emit?(viewModel)
-        }
-    }
-    
-    class ActiveValidatorSpy: ActiveValidator {
-        var isValid = true
-        var codes: [String]?
-        
-        func isValid(active: String) -> Bool {
-            
-            if (codes == nil) {
-                codes = []
-            }
-            
-            if (!codes!.contains(active)) {
-                codes?.append(active)
-            }
-            
-            return isValid
-        }
-    }
-    
-    class ReadActiveSpy: ReadActive {
-        var readActiveModels: [ReadActiveModel]?
-        var completion: ((Result<[ActiveModel]?, DomainError>) -> Void)?
-        
-        func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel]?, DomainError>) -> Void) {
-            self.readActiveModels = readActiveModels
-            self.completion = completion
-        }
-        
-        func completeWithError(_ error: DomainError) {
-            completion?(.failure(error))
-        }
-        
-        func completeWithActives(_ actives: [ActiveModel]) {
-            completion?(.success(actives))
-        }
-    }
-    
-    class LoadingViewSpy: LoadingView {
-        var emit: ((LoadingViewModel) -> Void)?
-        
-        func observe(completion: @escaping (LoadingViewModel) -> Void) {
-            self.emit = completion
-        }
-        
-        func display(viewModel: LoadingViewModel) {
-            self.emit?(viewModel)
-        }
-    }
 }
 
 extension XCTestCase {

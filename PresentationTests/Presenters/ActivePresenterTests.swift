@@ -14,8 +14,15 @@ class ActivePresenterTests: XCTestCase {
     func test_should_show_error_message_if_array_active_is_not_provided() {
         let (sut, alertViewSpy, _ ,_) = makeSut()
         let readActiveViewModel = ReadActiveViewModel(codes: [])
+        let exp = expectation(description: "waiting")
+        alertViewSpy.observe { [weak self] viewModel in
+            XCTAssertEqual(viewModel, self?.makeAlertViewModel(ActivePresenterConstans.titleAlert,
+                                                               ActivePresenterConstans.messageActiveRequired))
+            exp.fulfill()
+        }
         sut.listActive(viewModel: readActiveViewModel)
-        XCTAssertEqual(alertViewSpy.viewModel, AlertViewModel(title: ActivePresenterConstans.titleAlert, message: ActivePresenterConstans.messageActiveRequired))
+        wait(for: [exp], timeout: 1)
+        
     }
     
     func test_should_call_activeValidator_with_correct_active() {
@@ -29,8 +36,14 @@ class ActivePresenterTests: XCTestCase {
         let (sut, alertViewSpy, activeValidatorSpy, _) = makeSut()
         let readActiveViewModel = ReadActiveViewModel(codes: ["XPTO01", "XPTO02"])
         activeValidatorSpy.isValid = false
+        let exp = expectation(description: "waiting")
+        alertViewSpy.observe { [weak self] viewModel in
+            XCTAssertEqual(viewModel, self?.makeAlertViewModel(ActivePresenterConstans.titleAlert,
+                                                               ActivePresenterConstans.messageActiveInvalid))
+            exp.fulfill()
+        }
         sut.listActive(viewModel: readActiveViewModel)
-        XCTAssertEqual(alertViewSpy.viewModel, AlertViewModel(title: ActivePresenterConstans.titleAlert, message: ActivePresenterConstans.messageActiveInvalid))
+        wait(for: [exp], timeout: 1)
     }
     
     func test_active_should_call_readActive_with_correct_values() {
@@ -43,9 +56,15 @@ class ActivePresenterTests: XCTestCase {
     func test_should_show_error_message_if_readActive_fails() {
         let (sut, alertViewSpy, _, readActiveSpy) = makeSut()
         let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3"])
+        let exp = expectation(description: "waiting")
+        alertViewSpy.observe { [weak self] viewModel in
+            XCTAssertEqual(viewModel, self?.makeAlertViewModel(ActivePresenterConstans.titleError,
+                                                               ActivePresenterConstans.messageErrorInesperado))
+            exp.fulfill()
+        }
         sut.listActive(viewModel: readActiveViewModel)
         readActiveSpy.completeWithError(.unexpected)
-        XCTAssertEqual(alertViewSpy.viewModel, AlertViewModel(title: ActivePresenterConstans.titleError, message: ActivePresenterConstans.messageErrorInesperado))
+        wait(for: [exp], timeout: 1)
     }
 }
 
@@ -59,11 +78,19 @@ extension ActivePresenterTests {
         return (sut, alertViewSpy, activeValidatorSpy, readActiveSpy)
     }
     
+    func makeAlertViewModel(_ title: String, _ message: String) -> AlertViewModel {
+        return AlertViewModel(title: title, message: message)
+    }
+    
     class AlertViewSpy: AlertView {
-        var viewModel: AlertViewModel?
+        var emit: ((AlertViewModel) -> Void)?
+        
+        func observe(completion: @escaping (AlertViewModel) -> Void) {
+            self.emit = completion
+        }
         
         func showMessage(viewModel: AlertViewModel) {
-            self.viewModel = viewModel
+            self.emit?(viewModel)
         }
     }
     

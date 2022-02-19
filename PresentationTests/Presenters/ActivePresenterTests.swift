@@ -70,8 +70,13 @@ class ActivePresenterTests: XCTestCase {
     func test_should_show_loading_if_before_call_readActive() {
         let (sut, _, _, _, loadingViewSpy) = makeSut()
         let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3"])
+        let exp = expectation(description: "waiting")
+        loadingViewSpy.observe { viewModel in
+            XCTAssertEqual(viewModel, LoadingViewModel(isLoading: true))
+            exp.fulfill()
+        }
         sut.listActive(viewModel: readActiveViewModel)
-        XCTAssertEqual(loadingViewSpy.viewModel, LoadingViewModel(isLoading: true))
+        wait(for: [exp], timeout: 1)
     }
 }
 
@@ -136,10 +141,14 @@ extension ActivePresenterTests {
     }
     
     class LoadingViewSpy: LoadingView {
-        var viewModel: LoadingViewModel?
+        var emit: ((LoadingViewModel) -> Void)?
+        
+        func observe(completion: @escaping (LoadingViewModel) -> Void) {
+            self.emit = completion
+        }
         
         func display(viewModel: LoadingViewModel) {
-            self.viewModel = viewModel
+            self.emit?(viewModel)
         }
     }
 }

@@ -54,6 +54,7 @@
 		DDDFC50127B041A00062CE1E /* UrlProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC50027B041A00062CE1E /* UrlProtocolStub.swift */; };
 		DDDFC50927B04B990062CE1E /* ReadActiveIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC50827B04B990062CE1E /* ReadActiveIntegrationTests.swift */; };
 		DDDFC50B27B04B990062CE1E /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC49A27AEA7860062CE1E /* Data.framework */; };
+		DDE0485627C2808300033AB1 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0485527C2808300033AB1 /* TestExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +235,7 @@
 		DDDFC50627B04B990062CE1E /* UseCasesIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UseCasesIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDFC50827B04B990062CE1E /* ReadActiveIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadActiveIntegrationTests.swift; sourceTree = "<group>"; };
 		DDDFC50A27B04B990062CE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDE0485527C2808300033AB1 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +432,7 @@
 		DDAC2DCB27C1899400B2DB8D /* UITests */ = {
 			isa = PBXGroup;
 			children = (
+				DDE0485427C2806900033AB1 /* Helpers */,
 				DDE0485327C2800100033AB1 /* Scenes */,
 				DDAC2DCE27C1899400B2DB8D /* Info.plist */,
 			);
@@ -662,6 +665,14 @@
 				DDE0485127C27F9300033AB1 /* Active */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DDE0485427C2806900033AB1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DDE0485527C2808300033AB1 /* TestExtensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1089,6 +1100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDAC2DCD27C1899400B2DB8D /* ActiveViewControllerTests.swift in Sources */,
+				DDE0485627C2808300033AB1 /* TestExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

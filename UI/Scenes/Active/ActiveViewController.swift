@@ -10,7 +10,7 @@ import UIKit
 import Presentation
 import Domain
 
-final class ActiveViewController: UIViewController {
+final class ActiveViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var loadingIncator: UIActivityIndicatorView!
     @IBOutlet weak var loadButton: UIButton!

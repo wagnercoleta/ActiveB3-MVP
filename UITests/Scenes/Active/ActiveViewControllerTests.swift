@@ -40,8 +40,7 @@ class ActiveViewControllerTests: XCTestCase {
 
 extension ActiveViewControllerTests {
     func makeSut(activeMethodSpy: ((ReadActiveViewModel) -> Void)? = nil) -> ActiveViewController {
-        let sb = UIStoryboard(name: "Active", bundle: Bundle(for: ActiveViewController.self))
-        let sut = sb.instantiateViewController(identifier: "ActiveViewController") as! ActiveViewController
+        let sut = ActiveViewController.instantiate()
         sut.activeMethod = activeMethodSpy
         sut.loadViewIfNeeded()
         return sut

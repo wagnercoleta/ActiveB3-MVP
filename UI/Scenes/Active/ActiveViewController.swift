@@ -46,8 +46,10 @@ final class ActiveViewController: UIViewController {
 extension ActiveViewController: LoadingView {
     func display(viewModel: LoadingViewModel) {
         if viewModel.isLoading {
+            view.isUserInteractionEnabled = false // Desabilita todas interações do usuário
             loadingIncator?.startAnimating()
         } else {
+            view.isUserInteractionEnabled = true // Habilita todas interações do usuário
             loadingIncator?.stopAnimating()
         }
     }

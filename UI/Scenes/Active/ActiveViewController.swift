@@ -32,6 +32,8 @@ final class ActiveViewController: UIViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
+        
+        hideKeyboardOnTap()
     }
     
     @objc private func loadButtonTapped() {

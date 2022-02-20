@@ -422,8 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				DDAC2DC227C1899300B2DB8D /* Info.plist */,
-				DDAC2DDB27C18E6500B2DB8D /* ActiveViewController.swift */,
-				DDAC2DE627C1940D00B2DB8D /* Active.storyboard */,
+				DDE0485227C27FD700033AB1 /* Scenes */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -431,7 +430,7 @@
 		DDAC2DCB27C1899400B2DB8D /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				DDAC2DCC27C1899400B2DB8D /* ActiveViewControllerTests.swift */,
+				DDE0485327C2800100033AB1 /* Scenes */,
 				DDAC2DCE27C1899400B2DB8D /* Info.plist */,
 			);
 			path = UITests;
@@ -630,6 +629,39 @@
 				DDDFC50A27B04B990062CE1E /* Info.plist */,
 			);
 			path = UseCasesIntegrationTests;
+			sourceTree = "<group>";
+		};
+		DDE0485027C27F8700033AB1 /* Active */ = {
+			isa = PBXGroup;
+			children = (
+				DDAC2DDB27C18E6500B2DB8D /* ActiveViewController.swift */,
+				DDAC2DE627C1940D00B2DB8D /* Active.storyboard */,
+			);
+			path = Active;
+			sourceTree = "<group>";
+		};
+		DDE0485127C27F9300033AB1 /* Active */ = {
+			isa = PBXGroup;
+			children = (
+				DDAC2DCC27C1899400B2DB8D /* ActiveViewControllerTests.swift */,
+			);
+			path = Active;
+			sourceTree = "<group>";
+		};
+		DDE0485227C27FD700033AB1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DDE0485027C27F8700033AB1 /* Active */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DDE0485327C2800100033AB1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DDE0485127C27F9300033AB1 /* Active */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

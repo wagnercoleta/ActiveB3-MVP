@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,37 +16,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="10n-uE-fsm">
-                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
-                            </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWr-ww-Nzt">
-                                <rect key="frame" x="184" y="309" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VcZ-Gc-W5I" userLabel="CodeActiveTextField">
-                                <rect key="frame" x="159" y="215" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pz3-uI-Yyu">
+                                <rect key="frame" x="20" y="59" width="70" height="78"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ativos separados por ," textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VcZ-Gc-W5I" userLabel="CodeActiveTextField">
+                                <rect key="frame" x="100" y="59" width="294" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWr-ww-Nzt">
+                                <rect key="frame" x="100" y="101" width="294" height="30"/>
+                                <color key="backgroundColor" red="0.22352941176470587" green="0.54117647058823526" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Consultar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="10n-uE-fsm">
+                                <rect key="frame" x="364" y="106" width="20" height="20"/>
+                                <color key="tintColor" red="0.082352941176470587" green="0.44705882352941173" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hce-23-9qI">
+                                <rect key="frame" x="20" y="146" width="374" height="701"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.396078431372549" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="10n-uE-fsm" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="L1k-nj-vKT"/>
-                            <constraint firstItem="10n-uE-fsm" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="puz-Wv-6SP"/>
+                            <constraint firstItem="VcZ-Gc-W5I" firstAttribute="top" secondItem="pz3-uI-Yyu" secondAttribute="top" id="90w-Rq-STQ"/>
+                            <constraint firstItem="QWr-ww-Nzt" firstAttribute="height" secondItem="VcZ-Gc-W5I" secondAttribute="height" multiplier="0.882353" id="9QY-lO-t7L"/>
+                            <constraint firstItem="10n-uE-fsm" firstAttribute="centerY" secondItem="QWr-ww-Nzt" secondAttribute="centerY" id="Dje-uA-saW"/>
+                            <constraint firstItem="VcZ-Gc-W5I" firstAttribute="leading" secondItem="pz3-uI-Yyu" secondAttribute="trailing" constant="10" id="F4b-M7-s8N"/>
+                            <constraint firstItem="pz3-uI-Yyu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="FKe-dk-wqd"/>
+                            <constraint firstItem="QWr-ww-Nzt" firstAttribute="leading" secondItem="VcZ-Gc-W5I" secondAttribute="leading" id="GZE-dp-byF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Hce-23-9qI" secondAttribute="bottom" constant="15" id="QAA-iP-ppD"/>
+                            <constraint firstItem="QWr-ww-Nzt" firstAttribute="top" secondItem="VcZ-Gc-W5I" secondAttribute="bottom" constant="8" symbolic="YES" id="UHQ-UM-hh5"/>
+                            <constraint firstItem="Hce-23-9qI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VEG-CG-Fft"/>
+                            <constraint firstItem="10n-uE-fsm" firstAttribute="trailing" secondItem="QWr-ww-Nzt" secondAttribute="trailing" constant="-10" id="YKg-uW-nGd"/>
+                            <constraint firstItem="pz3-uI-Yyu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="fne-WZ-S1a"/>
+                            <constraint firstItem="QWr-ww-Nzt" firstAttribute="trailing" secondItem="VcZ-Gc-W5I" secondAttribute="trailing" id="mgI-Ah-Efc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VcZ-Gc-W5I" secondAttribute="trailing" constant="20" id="tih-dU-6u3"/>
+                            <constraint firstItem="Hce-23-9qI" firstAttribute="top" secondItem="QWr-ww-Nzt" secondAttribute="bottom" constant="15" id="vnp-Wd-cWc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Hce-23-9qI" secondAttribute="trailing" constant="20" id="xzh-67-nc1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="codeActiveTextField" destination="VcZ-Gc-W5I" id="lzP-j6-sds"/>
                         <outlet property="loadButton" destination="QWr-ww-Nzt" id="it6-rd-R7w"/>
                         <outlet property="loadingIncator" destination="10n-uE-fsm" id="6GR-lP-mzL"/>
+                        <outlet property="tableView" destination="Hce-23-9qI" id="H9L-vm-hTt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78" y="131"/>
+            <point key="canvasLocation" x="-78.260869565217391" y="130.58035714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

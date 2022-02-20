@@ -31,7 +31,7 @@ class ActiveViewControllerTests: XCTestCase {
     
     func test_loadButton_calls_active_on_tap() {
         var readActiveViewModel: ReadActiveViewModel?
-        let sut = makeSut(listActiveSpy: { readActiveViewModel = $0 })
+        let sut = makeSut(activeMethodSpy: { readActiveViewModel = $0 })
         sut.loadButton?.simulateTap()
         let code = sut.codeActiveTextField?.text
         XCTAssertEqual(readActiveViewModel, ReadActiveViewModel(codes: [code!]))
@@ -39,10 +39,10 @@ class ActiveViewControllerTests: XCTestCase {
 }
 
 extension ActiveViewControllerTests {
-    func makeSut(listActiveSpy: ((ReadActiveViewModel) -> Void)? = nil) -> ActiveViewController {
+    func makeSut(activeMethodSpy: ((ReadActiveViewModel) -> Void)? = nil) -> ActiveViewController {
         let sb = UIStoryboard(name: "Active", bundle: Bundle(for: ActiveViewController.self))
         let sut = sb.instantiateViewController(identifier: "ActiveViewController") as! ActiveViewController
-        sut.listActive = listActiveSpy
+        sut.activeMethod = activeMethodSpy
         sut.loadViewIfNeeded()
         return sut
     }

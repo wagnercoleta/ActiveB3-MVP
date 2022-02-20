@@ -10,12 +10,15 @@ import Presentation
 
 public final class ActiveValidatorAdapter: ActiveValidator {
     
-    private let pattern = "([A-Z]{4}[0-9]{1})"
+    private let pattern = "([A-Z]{4}[1-9]{1})"
     
     public func isValid(active: String) -> Bool {
-        let range = NSRange(location: 0, length: active.utf16.count)
-        let regex = try! NSRegularExpression(pattern: pattern)
-        return regex.firstMatch(in: active, options: [], range: range) != nil
+        if (active.count == 5) {
+            let range = NSRange(location: 0, length: active.utf16.count)
+            let regex = try! NSRegularExpression(pattern: pattern)
+            return regex.firstMatch(in: active, options: [], range: range) != nil
+        }
+        return false
     }
 }
 
@@ -29,5 +32,18 @@ class ActiveValidatorAdapterTests: XCTestCase {
         XCTAssertFalse(sut.isValid(active: "P1234"))
         XCTAssertFalse(sut.isValid(active: "PET32"))
         XCTAssertFalse(sut.isValid(active: "XX22"))
+        XCTAssertFalse(sut.isValid(active: "PETR0"))
+        XCTAssertFalse(sut.isValid(active: "petr4"))
+        XCTAssertFalse(sut.isValid(active: "Petr4"))
+    }
+    
+    func test_valid_active() {
+        let sut = ActiveValidatorAdapter()
+        XCTAssertTrue(sut.isValid(active: "PETR4"))
+        XCTAssertTrue(sut.isValid(active: "PETR3"))
+        XCTAssertTrue(sut.isValid(active: "MGLU3"))
+        XCTAssertTrue(sut.isValid(active: "USIM5"))
+        XCTAssertTrue(sut.isValid(active: "GGBR4"))
+        XCTAssertTrue(sut.isValid(active: "GOLL4"))
     }
 }

@@ -59,6 +59,7 @@
 		DDE0485B27C2C88500033AB1 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0485A27C2C88500033AB1 /* Storyboarded.swift */; };
 		DDE0486A27C2CF4100033AB1 /* Validation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE0486127C2CF4100033AB1 /* Validation.framework */; };
 		DDE0486F27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0486E27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift */; };
+		DDE0487927C4627300033AB1 /* ActiveValidatorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0487827C4627300033AB1 /* ActiveValidatorAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		DDE0486927C2CF4100033AB1 /* ValidationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValidationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE0486E27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidatorAdapterTests.swift; sourceTree = "<group>"; };
 		DDE0487027C2CF4100033AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDE0487827C4627300033AB1 /* ActiveValidatorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidatorAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -725,6 +727,7 @@
 		DDE0486227C2CF4100033AB1 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
+				DDE0487827C4627300033AB1 /* ActiveValidatorAdapter.swift */,
 				DDE0486427C2CF4100033AB1 /* Info.plist */,
 			);
 			path = Validation;
@@ -1064,6 +1067,7 @@
 					};
 					DDE0486027C2CF4100033AB1 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					DDE0486827C2CF4100033AB1 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -1300,6 +1304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE0487927C4627300033AB1 /* ActiveValidatorAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2006,6 +2011,7 @@
 		DDE0487327C2CF4100033AB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -2026,6 +2032,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -2033,6 +2040,7 @@
 		DDE0487427C2CF4100033AB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -2060,6 +2068,7 @@
 		DDE0487627C2CF4100033AB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = MHZS489UFW;
@@ -2081,6 +2090,7 @@
 		DDE0487727C2CF4100033AB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = MHZS489UFW;

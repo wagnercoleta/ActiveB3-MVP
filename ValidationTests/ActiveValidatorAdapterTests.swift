@@ -25,7 +25,7 @@ public final class ActiveValidatorAdapter: ActiveValidator {
 class ActiveValidatorAdapterTests: XCTestCase {
 
     func test_invalid_active() {
-        let sut = ActiveValidatorAdapter()
+        let sut = makeSut()
         XCTAssertFalse(sut.isValid(active: ""))
         XCTAssertFalse(sut.isValid(active: "123"))
         XCTAssertFalse(sut.isValid(active: " xpt"))
@@ -38,12 +38,19 @@ class ActiveValidatorAdapterTests: XCTestCase {
     }
     
     func test_valid_active() {
-        let sut = ActiveValidatorAdapter()
+        let sut = makeSut()
         XCTAssertTrue(sut.isValid(active: "PETR4"))
         XCTAssertTrue(sut.isValid(active: "PETR3"))
         XCTAssertTrue(sut.isValid(active: "MGLU3"))
         XCTAssertTrue(sut.isValid(active: "USIM5"))
         XCTAssertTrue(sut.isValid(active: "GGBR4"))
         XCTAssertTrue(sut.isValid(active: "GOLL4"))
+    }
+}
+
+extension ActiveValidatorAdapterTests {
+    func makeSut() -> ActiveValidatorAdapter {
+        let sut = ActiveValidatorAdapter()
+        return sut
     }
 }

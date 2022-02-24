@@ -10,7 +10,7 @@ import Domain
 import UI
 
 public final class ActiveComposer {
-    static func composeControllerWith(readActive: ReadActive) -> ActiveViewController {
+    public static func composeControllerWith(readActive: ReadActive) -> ActiveViewController {
         return ControllerFactory.makeActiveController(readActive: readActive)
     }
 }

@@ -79,6 +79,9 @@
 		DDE048C927C4676D00033AB1 /* ControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048C827C4676D00033AB1 /* ControllerFactory.swift */; };
 		DDE048CB27C6FB9000033AB1 /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048CA27C6FB9000033AB1 /* UseCaseFactory.swift */; };
 		DDE048CE27C6FC7000033AB1 /* ActiveComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048CD27C6FC7000033AB1 /* ActiveComposer.swift */; };
+		DDE048D027C7004800033AB1 /* ActiveIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048CF27C7004800033AB1 /* ActiveIntegrationTests.swift */; };
+		DDE048D127C700E000033AB1 /* ReadActiveSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB827C17ED900B2DB8D /* ReadActiveSpy.swift */; };
+		DDE048D227C7015A00033AB1 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4CD27AF31FE0062CE1E /* TestExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -360,6 +363,7 @@
 		DDE048C827C4676D00033AB1 /* ControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactory.swift; sourceTree = "<group>"; };
 		DDE048CA27C6FB9000033AB1 /* UseCaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 		DDE048CD27C6FC7000033AB1 /* ActiveComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveComposer.swift; sourceTree = "<group>"; };
+		DDE048CF27C7004800033AB1 /* ActiveIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveIntegrationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -897,6 +901,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE0489927C4642400033AB1 /* Info.plist */,
+				DDE048CF27C7004800033AB1 /* ActiveIntegrationTests.swift */,
 			);
 			path = MainTests;
 			sourceTree = "<group>";
@@ -1321,6 +1326,7 @@
 					};
 					DDE0489227C4642400033AB1 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 						TestTargetID = DDE0487D27C4642000033AB1;
 					};
 					DDE0489D27C4642400033AB1 = {
@@ -1613,6 +1619,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE048D127C700E000033AB1 /* ReadActiveSpy.swift in Sources */,
+				DDE048D227C7015A00033AB1 /* TestExtensions.swift in Sources */,
+				DDE048D027C7004800033AB1 /* ActiveIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2510,6 +2519,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHZS489UFW;
 				INFOPLIST_FILE = MainTests/Info.plist;
@@ -2521,6 +2531,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wmc.MainTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Main.app/Main";
@@ -2532,6 +2543,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MHZS489UFW;
 				INFOPLIST_FILE = MainTests/Info.plist;

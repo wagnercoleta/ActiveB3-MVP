@@ -83,6 +83,7 @@
 		DDE048D127C700E000033AB1 /* ReadActiveSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB827C17ED900B2DB8D /* ReadActiveSpy.swift */; };
 		DDE048D227C7015A00033AB1 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4CD27AF31FE0062CE1E /* TestExtensions.swift */; };
 		DDE048D327C706A000033AB1 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4CD27AF31FE0062CE1E /* TestExtensions.swift */; };
+		DDE048D627C7079100033AB1 /* WeakVarProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048D527C7079100033AB1 /* WeakVarProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -365,6 +366,7 @@
 		DDE048CA27C6FB9000033AB1 /* UseCaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 		DDE048CD27C6FC7000033AB1 /* ActiveComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveComposer.swift; sourceTree = "<group>"; };
 		DDE048CF27C7004800033AB1 /* ActiveIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveIntegrationTests.swift; sourceTree = "<group>"; };
+		DDE048D527C7079100033AB1 /* WeakVarProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakVarProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -887,6 +889,7 @@
 		DDE0487F27C4642000033AB1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DDE048D427C7073E00033AB1 /* Proxies */,
 				DDE048CC27C6FC5200033AB1 /* Composers */,
 				DDE048C727C4675800033AB1 /* Factories */,
 				DDE0488027C4642000033AB1 /* AppDelegate.swift */,
@@ -930,6 +933,14 @@
 				DDE048CD27C6FC7000033AB1 /* ActiveComposer.swift */,
 			);
 			path = Composers;
+			sourceTree = "<group>";
+		};
+		DDE048D427C7073E00033AB1 /* Proxies */ = {
+			isa = PBXGroup;
+			children = (
+				DDE048D527C7079100033AB1 /* WeakVarProxy.swift */,
+			);
+			path = Proxies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1613,6 +1624,7 @@
 				DDE048CE27C6FC7000033AB1 /* ActiveComposer.swift in Sources */,
 				DDE0488127C4642000033AB1 /* AppDelegate.swift in Sources */,
 				DDE0488327C4642000033AB1 /* SceneDelegate.swift in Sources */,
+				DDE048D627C7079100033AB1 /* WeakVarProxy.swift in Sources */,
 				DDE048C927C4676D00033AB1 /* ControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

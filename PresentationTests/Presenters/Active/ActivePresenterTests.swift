@@ -119,13 +119,3 @@ extension ActivePresenterTests {
         return AlertViewModel(title: title, message: message)
     }
 }
-
-extension XCTestCase {
-    func checkMemoryLeak(for instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        //INI - TU para verificar memory leak (vazamento de memória - referência ciclica)
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, file: file, line: line)
-        }
-        //FIM - TU
-    }
-}

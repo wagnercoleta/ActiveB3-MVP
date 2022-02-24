@@ -82,6 +82,7 @@
 		DDE048D027C7004800033AB1 /* ActiveIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048CF27C7004800033AB1 /* ActiveIntegrationTests.swift */; };
 		DDE048D127C700E000033AB1 /* ReadActiveSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB827C17ED900B2DB8D /* ReadActiveSpy.swift */; };
 		DDE048D227C7015A00033AB1 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4CD27AF31FE0062CE1E /* TestExtensions.swift */; };
+		DDE048D327C706A000033AB1 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4CD27AF31FE0062CE1E /* TestExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1501,6 +1502,7 @@
 				DDAC2DB927C17ED900B2DB8D /* ReadActiveSpy.swift in Sources */,
 				DDAC2DB627C17E5400B2DB8D /* LoadingViewSpy.swift in Sources */,
 				DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */,
+				DDE048D327C706A000033AB1 /* TestExtensions.swift in Sources */,
 				DDAC2DB327C17E0400B2DB8D /* ActiveValidatorSpy.swift in Sources */,
 				DD4DC30127BC7AD900C5A08C /* ActivePresenterTests.swift in Sources */,
 				DDAC2DB027C17D7400B2DB8D /* AlertViewSpy.swift in Sources */,

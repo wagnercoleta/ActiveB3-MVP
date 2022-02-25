@@ -38,9 +38,8 @@ public final class ActiveViewController: UIViewController, Storyboarded {
     
     @objc private func loadButtonTapped() {
         if let codeActive = codeActiveTextField?.text {
-            var codes = [String]()
-            codes.append(codeActive)
-            activeMethod?(ReadActiveViewModel(codes: codes))
+            let codesArray = codeActive.components(separatedBy: ",")
+            activeMethod?(ReadActiveViewModel(codes: codesArray))
         }
     }
 }

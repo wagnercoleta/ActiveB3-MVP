@@ -18,22 +18,25 @@ public final class RemoteReadActive: ReadActive {
     }
     
     public func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel]?, DomainError>) -> Void) {
-        
-        httpClient.get(to: self.url) { [weak self] result in
-            guard self != nil else { return }
-            switch result {
-                case .success(let data):
-                    if let activeModels = try? JSONDecoder().decode([ActiveModel].self, from: data!) {
-                        completion(.success(activeModels))
-                    } else {
-                        if let activeModels = self?.extractXMLtoResult(data: data!) {
+        if let urlQuery = getURLQuery(urlBase: self.url, readActiveModels: readActiveModels) {
+            httpClient.get(to: urlQuery) { [weak self] result in
+                guard self != nil else { return }
+                switch result {
+                    case .success(let data):
+                        if let activeModels = try? JSONDecoder().decode([ActiveModel].self, from: data!) {
                             completion(.success(activeModels))
                         } else {
-                            completion(.failure(.unexpected))
+                            if let activeModels = self?.extractXMLtoResult(data: data!) {
+                                completion(.success(activeModels))
+                            } else {
+                                completion(.failure(.unexpected))
+                            }
                         }
-                    }
-                case .failure: completion(.failure(.unexpected))
+                    case .failure: completion(.failure(.unexpected))
+                }
             }
+        } else {
+            completion(.failure(.unexpected))
         }
     }
     

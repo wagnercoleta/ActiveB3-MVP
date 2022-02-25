@@ -84,6 +84,8 @@
 		DDE048D227C7015A00033AB1 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4CD27AF31FE0062CE1E /* TestExtensions.swift */; };
 		DDE048D327C706A000033AB1 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4CD27AF31FE0062CE1E /* TestExtensions.swift */; };
 		DDE048D627C7079100033AB1 /* WeakVarProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048D527C7079100033AB1 /* WeakVarProxy.swift */; };
+		DDE048F827C85B2500033AB1 /* UtilsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048F727C85B2500033AB1 /* UtilsFactory.swift */; };
+		DDE048F927C85BD100033AB1 /* UtilsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048F727C85B2500033AB1 /* UtilsFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,6 +369,7 @@
 		DDE048CD27C6FC7000033AB1 /* ActiveComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveComposer.swift; sourceTree = "<group>"; };
 		DDE048CF27C7004800033AB1 /* ActiveIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveIntegrationTests.swift; sourceTree = "<group>"; };
 		DDE048D527C7079100033AB1 /* WeakVarProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakVarProxy.swift; sourceTree = "<group>"; };
+		DDE048F727C85B2500033AB1 /* UtilsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -752,6 +755,7 @@
 			isa = PBXGroup;
 			children = (
 				DDDFC4CA27AF15200062CE1E /* ExtensionHelpers.swift */,
+				DDE048F727C85B2500033AB1 /* UtilsFactory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1557,6 +1561,7 @@
 				DDDFC4BC27AEF7C10062CE1E /* RemoteReadActive.swift in Sources */,
 				DDDFC4CB27AF15200062CE1E /* ExtensionHelpers.swift in Sources */,
 				DDDFC4C827AF025D0062CE1E /* HttpError.swift in Sources */,
+				DDE048F827C85B2500033AB1 /* UtilsFactory.swift in Sources */,
 				DDDFC4BE27AEF8330062CE1E /* HttpClientGet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1569,6 +1574,7 @@
 				DDDFC4D027AF329C0062CE1E /* TestFactories.swift in Sources */,
 				DDDFC4D327AF33470062CE1E /* HttpClientSpy.swift in Sources */,
 				DDDFC4A827AEA7860062CE1E /* RemoteReadActiveTests.swift in Sources */,
+				DDE048F927C85BD100033AB1 /* UtilsFactory.swift in Sources */,
 				DDDFC4CE27AF31FE0062CE1E /* TestExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

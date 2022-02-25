@@ -8,6 +8,7 @@
 import Foundation
 import Presentation
 
+//Designer Pather Proxy - Insere uma camada para remover referência ciclica e evitar memory leak
 final class WeakVarProxy<T: AnyObject> {
     private weak var instance: T?
     

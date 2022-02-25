@@ -12,9 +12,10 @@ import Data
 class RemoteReadActiveTests: XCTestCase {
 
     func test_read_should_call_httpClient_with_correct_url() {
-        let url = makeUrl()
-        let (sut, httpClientSpy) = makeSut(url: url)
         let readActiveModels = makeReadActiveModels()
+        let urlBase = makeUrl()
+        let url = getURLQuery(urlBase: urlBase, readActiveModels: readActiveModels)!
+        let (sut, httpClientSpy) = makeSut(url: urlBase)
         sut.read(readActiveModels: readActiveModels) { _ in }
         XCTAssertEqual(httpClientSpy.urls, [url])
     }

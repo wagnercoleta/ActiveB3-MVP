@@ -6,11 +6,19 @@
 //
 
 import Foundation
-import Domain
 import UI
+import Presentation
+import Validation
+import Data
+import Infra
+import Domain
 
 public final class ActiveComposer {
     public static func composeControllerWith(readActive: ReadActive) -> ActiveViewController {
-        return ControllerFactory.makeActiveController(readActive: readActive)
+        let controller = ActiveViewController.instantiate()
+        let activeValidatorAdapter = ActiveValidatorAdapter()
+        let presenter = ActivePresenter(alertView: WeakVarProxy(controller), activeValidator: activeValidatorAdapter, readActive: readActive, loadingView: WeakVarProxy(controller))
+        controller.activeMethod = presenter.listActive
+        return controller
     }
 }

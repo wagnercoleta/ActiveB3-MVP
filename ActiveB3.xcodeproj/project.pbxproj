@@ -76,7 +76,6 @@
 		DDE048BF27C4668D00033AB1 /* UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDAC2DBF27C1899300B2DB8D /* UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDE048C227C4668D00033AB1 /* Validation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE0486127C2CF4100033AB1 /* Validation.framework */; };
 		DDE048C327C4668D00033AB1 /* Validation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDE0486127C2CF4100033AB1 /* Validation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DDE048C927C4676D00033AB1 /* ControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048C827C4676D00033AB1 /* ControllerFactory.swift */; };
 		DDE048CB27C6FB9000033AB1 /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048CA27C6FB9000033AB1 /* UseCaseFactory.swift */; };
 		DDE048CE27C6FC7000033AB1 /* ActiveComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048CD27C6FC7000033AB1 /* ActiveComposer.swift */; };
 		DDE048D027C7004800033AB1 /* ActiveIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048CF27C7004800033AB1 /* ActiveIntegrationTests.swift */; };
@@ -364,7 +363,6 @@
 		DDE0489927C4642400033AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDE0489E27C4642400033AB1 /* MainUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MainUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE048A427C4642400033AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDE048C827C4676D00033AB1 /* ControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactory.swift; sourceTree = "<group>"; };
 		DDE048CA27C6FB9000033AB1 /* UseCaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 		DDE048CD27C6FC7000033AB1 /* ActiveComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveComposer.swift; sourceTree = "<group>"; };
 		DDE048CF27C7004800033AB1 /* ActiveIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveIntegrationTests.swift; sourceTree = "<group>"; };
@@ -925,7 +923,6 @@
 		DDE048C727C4675800033AB1 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
-				DDE048C827C4676D00033AB1 /* ControllerFactory.swift */,
 				DDE048CA27C6FB9000033AB1 /* UseCaseFactory.swift */,
 			);
 			path = Factories;
@@ -1631,7 +1628,6 @@
 				DDE0488127C4642000033AB1 /* AppDelegate.swift in Sources */,
 				DDE0488327C4642000033AB1 /* SceneDelegate.swift in Sources */,
 				DDE048D627C7079100033AB1 /* WeakVarProxy.swift in Sources */,
-				DDE048C927C4676D00033AB1 /* ControllerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

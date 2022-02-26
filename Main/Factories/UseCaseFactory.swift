@@ -13,9 +13,11 @@ import Domain
 final class UseCaseFactory {
     
     private static let httpClient = AlamofireAdapter()
+    private static let baseURL = Environment.variable(.apiBaseUrl)
     
     static func makeRemoteReadActive() -> ReadActive {
-        let url = URL(string: "https://bvmf.bmfbovespa.com.br/cotacoes2000/FormConsultaCotacoes.asp?strListaCodigos=")!
+        let urlComplete = "\(baseURL)/FormConsultaCotacoes.asp?strListaCodigos="
+        let url = URL(string: urlComplete)!
         let remoteReadActive = RemoteReadActive(url: url, httpClient: httpClient)
         return remoteReadActive
     }

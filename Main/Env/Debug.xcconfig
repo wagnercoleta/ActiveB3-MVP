@@ -1,0 +1,10 @@
+//
+//  Debug.xcconfig
+//  ActiveB3
+//
+//  Created by Wagner Coleta on 26/02/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+API_BASE_URL = https:/$()/bvmf.bmfbovespa.com.br/cotacoes2000

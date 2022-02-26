@@ -86,6 +86,9 @@
 		DDE048F827C85B2500033AB1 /* UtilsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048F727C85B2500033AB1 /* UtilsFactory.swift */; };
 		DDE048F927C85BD100033AB1 /* UtilsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE048F727C85B2500033AB1 /* UtilsFactory.swift */; };
 		DDE3205827CA4DB100D7F5CA /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3205727CA4DB100D7F5CA /* Environment.swift */; };
+		DDE3205A27CA58D000D7F5CA /* ActiveModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4D427AF33CE0062CE1E /* ActiveModelFactory.swift */; };
+		DDE3205D27CA5B5B00D7F5CA /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3205C27CA5B5B00D7F5CA /* TestFactories.swift */; };
+		DDE3205E27CA5BCB00D7F5CA /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3205C27CA5B5B00D7F5CA /* TestFactories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,6 +375,7 @@
 		DDE3205527CA499C00D7F5CA /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		DDE3205627CA4A2B00D7F5CA /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		DDE3205727CA4DB100D7F5CA /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		DDE3205C27CA5B5B00D7F5CA /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -514,6 +518,7 @@
 		DD4DC2FF27BC7AD900C5A08C /* PresentationTests */ = {
 			isa = PBXGroup;
 			children = (
+				DDE3205B27CA5B3E00D7F5CA /* Helpers */,
 				DDAC2DB727C17ECB00B2DB8D /* UseCases */,
 				DDAC2DB127C17DF000B2DB8D /* Validators */,
 				DDAC2DAE27C17D5900B2DB8D /* Views */,
@@ -965,6 +970,14 @@
 				DDE048CF27C7004800033AB1 /* ActiveComposerTests.swift */,
 			);
 			path = Composers;
+			sourceTree = "<group>";
+		};
+		DDE3205B27CA5B3E00D7F5CA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DDE3205C27CA5B5B00D7F5CA /* TestFactories.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1540,6 +1553,7 @@
 				DDE048D327C706A000033AB1 /* TestExtensions.swift in Sources */,
 				DDAC2DB327C17E0400B2DB8D /* ActiveValidatorSpy.swift in Sources */,
 				DD4DC30127BC7AD900C5A08C /* ActivePresenterTests.swift in Sources */,
+				DDE3205D27CA5B5B00D7F5CA /* TestFactories.swift in Sources */,
 				DDAC2DB027C17D7400B2DB8D /* AlertViewSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1659,7 +1673,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE3205A27CA58D000D7F5CA /* ActiveModelFactory.swift in Sources */,
 				DDE048D127C700E000033AB1 /* ReadActiveSpy.swift in Sources */,
+				DDE3205E27CA5BCB00D7F5CA /* TestFactories.swift in Sources */,
 				DDE048D227C7015A00033AB1 /* TestExtensions.swift in Sources */,
 				DDE048D027C7004800033AB1 /* ActiveComposerTests.swift in Sources */,
 			);

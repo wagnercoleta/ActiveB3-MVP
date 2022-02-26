@@ -46,12 +46,11 @@ public final class ActivePresenter {
             
             readActive.read(readActiveModels: readActiveModels) { [weak self] result in
                 guard let self = self else { return }
+                self.loadingView.display(viewModel: LoadingViewModel(isLoading: false))
                 switch result {
                 case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleError, message: ActivePresenterConstans.messageErrorInesperado))
                 case .success: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleSuccess, message: ActivePresenterConstans.messageSuccess))
                 }
-                
-                self.loadingView.display(viewModel: LoadingViewModel(isLoading: false))
             }
         }
     }

@@ -11,10 +11,12 @@ import Infra
 import Domain
 
 final class UseCaseFactory {
+    
+    private static let httpClient = AlamofireAdapter()
+    
     static func makeRemoteReadActive() -> ReadActive {
-        let alamofireAdapter = AlamofireAdapter()
         let url = URL(string: "https://bvmf.bmfbovespa.com.br/cotacoes2000/FormConsultaCotacoes.asp?strListaCodigos=")!
-        let remoteReadActive = RemoteReadActive(url: url, httpClient: alamofireAdapter)
+        let remoteReadActive = RemoteReadActive(url: url, httpClient: httpClient)
         return remoteReadActive
     }
 }

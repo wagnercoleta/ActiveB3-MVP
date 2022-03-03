@@ -16,9 +16,17 @@ import Domain
 public final class ActiveComposer {
     public static func composeControllerWith(readActive: ReadActive) -> ActiveViewController {
         let controller = ActiveViewController.instantiate()
-        let activeValidatorAdapter = ActiveValidatorAdapter()
-        let presenter = ActivePresenter(alertView: WeakVarProxy(controller), activeValidator: activeValidatorAdapter, readActive: readActive, loadingView: WeakVarProxy(controller))
+        let validationComposite = ValidationComposite(validations: makeValidations())
+        let presenter = ActivePresenter(alertView: WeakVarProxy(controller), readActive: readActive, loadingView: WeakVarProxy(controller),
+                                        validation: validationComposite)
         controller.activeMethod = presenter.listActive
         return controller
+    }
+    
+    public static func makeValidations() -> [Validation] {
+        return [
+            RequiredFieldValidation(fieldName: "codes", fieldLabel: "ativos"),
+            ActiveValidation(fieldName: "codes", fieldLabel: "ativos", activeValidator: ActiveValidatorAdapter())
+        ]
     }
 }

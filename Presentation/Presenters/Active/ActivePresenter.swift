@@ -21,20 +21,20 @@ public struct ActivePresenterConstans {
 
 public final class ActivePresenter {
     private let alertView: AlertView
-    private let activeValidator: ActiveValidator
     private let readActive: ReadActive
     private let loadingView: LoadingView
+    private let validation: Validation
     
-    public init(alertView: AlertView, activeValidator: ActiveValidator, readActive: ReadActive,
-                loadingView: LoadingView) {
+    public init(alertView: AlertView, readActive: ReadActive,
+                loadingView: LoadingView, validation: Validation) {
         self.alertView = alertView
-        self.activeValidator = activeValidator
         self.readActive = readActive
         self.loadingView = loadingView
+        self.validation = validation
     }
     
     public func listActive(viewModel: ReadActiveViewModel){
-        if let message = validate(viewModel: viewModel) {
+        if let message = validation.validate(data: viewModel.toJson()) {
             alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleAlert, message: message))
         } else {
             loadingView.display(viewModel: LoadingViewModel(isLoading: true))
@@ -53,25 +53,5 @@ public final class ActivePresenter {
                 }
             }
         }
-    }
-    
-    private func validate(viewModel: ReadActiveViewModel) -> String? {
-        if viewModel.codes == nil || viewModel.codes!.count <= 0 {
-            return ActivePresenterConstans.messageActiveRequired
-        }
-        
-        var isValid = true
-        if let codes = viewModel.codes {
-            codes.forEach { code in
-                if (isValid) {
-                    isValid = activeValidator.isValid(active: code)
-                }
-            }
-        }
-        if (!isValid) {
-            return ActivePresenterConstans.messageActiveInvalid
-        }
-        
-        return nil
     }
 }

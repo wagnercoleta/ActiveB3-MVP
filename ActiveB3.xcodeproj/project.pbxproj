@@ -13,12 +13,10 @@
 		DDA825D627BDC0D70039CA19 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC48927AEA3290062CE1E /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */; };
 		DDA825DE27BDC2780039CA19 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825DD27BDC2780039CA19 /* AlertView.swift */; };
-		DDA825E327BDC8E30039CA19 /* ActiveValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */; };
 		DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4D427AF33CE0062CE1E /* ActiveModelFactory.swift */; };
 		DDAC2DA927C16D1A00B2DB8D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DA827C16D1A00B2DB8D /* LoadingView.swift */; };
 		DDAC2DAC27C17B1500B2DB8D /* ReadActiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */; };
 		DDAC2DB027C17D7400B2DB8D /* AlertViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DAF27C17D7400B2DB8D /* AlertViewSpy.swift */; };
-		DDAC2DB327C17E0400B2DB8D /* ActiveValidatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */; };
 		DDAC2DB627C17E5400B2DB8D /* LoadingViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB527C17E5400B2DB8D /* LoadingViewSpy.swift */; };
 		DDAC2DB927C17ED900B2DB8D /* ReadActiveSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB827C17ED900B2DB8D /* ReadActiveSpy.swift */; };
 		DDAC2DC827C1899400B2DB8D /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDAC2DBF27C1899300B2DB8D /* UI.framework */; };
@@ -58,8 +56,6 @@
 		DDE0485927C2C63B00033AB1 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0485827C2C63B00033AB1 /* UIViewControllerExtension.swift */; };
 		DDE0485B27C2C88500033AB1 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0485A27C2C88500033AB1 /* Storyboarded.swift */; };
 		DDE0486A27C2CF4100033AB1 /* Validation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE0486127C2CF4100033AB1 /* Validation.framework */; };
-		DDE0486F27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0486E27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift */; };
-		DDE0487927C4627300033AB1 /* ActiveValidatorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0487827C4627300033AB1 /* ActiveValidatorAdapter.swift */; };
 		DDE0488127C4642000033AB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0488027C4642000033AB1 /* AppDelegate.swift */; };
 		DDE0488327C4642000033AB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0488227C4642000033AB1 /* SceneDelegate.swift */; };
 		DDE0488A27C4642300033AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE0488927C4642300033AB1 /* Assets.xcassets */; };
@@ -90,6 +86,23 @@
 		DDE3205D27CA5B5B00D7F5CA /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3205C27CA5B5B00D7F5CA /* TestFactories.swift */; };
 		DDE3205E27CA5BCB00D7F5CA /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3205C27CA5B5B00D7F5CA /* TestFactories.swift */; };
 		DDE3206127CA726000D7F5CA /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3206027CA726000D7F5CA /* MainQueueDispatchDecorator.swift */; };
+		DDE3206327CF9D6400D7F5CA /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3206227CF9D6400D7F5CA /* Validation.swift */; };
+		DDE3206427CF9DB900D7F5CA /* ActiveValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */; };
+		DDE3206527CF9DE700D7F5CA /* ActiveValidatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */; };
+		DDE3206727CF9E2600D7F5CA /* ValidationSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3206627CF9E2600D7F5CA /* ValidationSpy.swift */; };
+		DDE3206927CF9EC900D7F5CA /* ActiveValidatorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0487827C4627300033AB1 /* ActiveValidatorAdapter.swift */; };
+		DDE3206B27CF9F0300D7F5CA /* ActiveValidatorAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE0486E27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift */; };
+		DDE3206C27CF9F5B00D7F5CA /* Validation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE0486127C2CF4100033AB1 /* Validation.framework */; };
+		DDE3206D27CF9F5B00D7F5CA /* Validation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDE0486127C2CF4100033AB1 /* Validation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDE3207127CFA8B300D7F5CA /* RequiredFieldValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3207027CFA8B300D7F5CA /* RequiredFieldValidationTests.swift */; };
+		DDE3207727CFAF1A00D7F5CA /* RequiredFieldValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3207627CFAF1A00D7F5CA /* RequiredFieldValidation.swift */; };
+		DDE3207827CFB08E00D7F5CA /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4CD27AF31FE0062CE1E /* TestExtensions.swift */; };
+		DDE3207C27CFB59600D7F5CA /* ActiveValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3207B27CFB59600D7F5CA /* ActiveValidationTests.swift */; };
+		DDE3207E27CFBFF000D7F5CA /* ActiveValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3207D27CFBFF000D7F5CA /* ActiveValidation.swift */; };
+		DDE3208027CFC17900D7F5CA /* ValidationCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3207F27CFC17900D7F5CA /* ValidationCompositeTests.swift */; };
+		DDE3208227CFCF6A00D7F5CA /* ValidationComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3208127CFCF6A00D7F5CA /* ValidationComposite.swift */; };
+		DDE3208427CFCFDA00D7F5CA /* ValidationSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3208327CFCFDA00D7F5CA /* ValidationSpy.swift */; };
+		DDE3208627D0541800D7F5CA /* ActiveValidatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +246,13 @@
 			remoteGlobalIDString = DDE0486027C2CF4100033AB1;
 			remoteInfo = Validation;
 		};
+		DDE3206E27CF9F5B00D7F5CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDDFC47027AEA1C70062CE1E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDE0486027C2CF4100033AB1;
+			remoteInfo = Validation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -276,6 +296,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DDDFC4F327AF372D0062CE1E /* Data.framework in Embed Frameworks */,
+				DDE3206D27CF9F5B00D7F5CA /* Validation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +399,15 @@
 		DDE3205727CA4DB100D7F5CA /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		DDE3205C27CA5B5B00D7F5CA /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
 		DDE3206027CA726000D7F5CA /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
+		DDE3206227CF9D6400D7F5CA /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		DDE3206627CF9E2600D7F5CA /* ValidationSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSpy.swift; sourceTree = "<group>"; };
+		DDE3207027CFA8B300D7F5CA /* RequiredFieldValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredFieldValidationTests.swift; sourceTree = "<group>"; };
+		DDE3207627CFAF1A00D7F5CA /* RequiredFieldValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredFieldValidation.swift; sourceTree = "<group>"; };
+		DDE3207B27CFB59600D7F5CA /* ActiveValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidationTests.swift; sourceTree = "<group>"; };
+		DDE3207D27CFBFF000D7F5CA /* ActiveValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidation.swift; sourceTree = "<group>"; };
+		DDE3207F27CFC17900D7F5CA /* ValidationCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationCompositeTests.swift; sourceTree = "<group>"; };
+		DDE3208127CFCF6A00D7F5CA /* ValidationComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationComposite.swift; sourceTree = "<group>"; };
+		DDE3208327CFCFDA00D7F5CA /* ValidationSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,6 +470,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE3206C27CF9F5B00D7F5CA /* Validation.framework in Frameworks */,
 				DDDFC4F227AF372D0062CE1E /* Data.framework in Frameworks */,
 				DDDFC4FB27AFDFCB0062CE1E /* Alamofire in Frameworks */,
 			);
@@ -558,7 +589,7 @@
 		DDA825E127BDC8CF0039CA19 /* Validators */ = {
 			isa = PBXGroup;
 			children = (
-				DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */,
+				DDE3207227CFAE9F00D7F5CA /* Protocols */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -592,7 +623,7 @@
 		DDAC2DB127C17DF000B2DB8D /* Validators */ = {
 			isa = PBXGroup;
 			children = (
-				DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */,
+				DDE3206627CF9E2600D7F5CA /* ValidationSpy.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -790,6 +821,7 @@
 		DDDFC4DC27AF354D0062CE1E /* Infra */ = {
 			isa = PBXGroup;
 			children = (
+				DDE3206827CF9EB300D7F5CA /* Validators */,
 				DDDFC4FE27B040C80062CE1E /* Http */,
 				DDDFC4DE27AF354D0062CE1E /* Info.plist */,
 			);
@@ -799,6 +831,7 @@
 		DDDFC4E727AF354D0062CE1E /* InfraTests */ = {
 			isa = PBXGroup;
 			children = (
+				DDE3206A27CF9EED00D7F5CA /* Validators */,
 				DDDFC4FF27B041900062CE1E /* Http */,
 				DDDFC4EA27AF354D0062CE1E /* Info.plist */,
 			);
@@ -884,7 +917,8 @@
 		DDE0486227C2CF4100033AB1 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
-				DDE0487827C4627300033AB1 /* ActiveValidatorAdapter.swift */,
+				DDE3207427CFAEFC00D7F5CA /* Protocols */,
+				DDE3207527CFAF0C00D7F5CA /* Validators */,
 				DDE0486427C2CF4100033AB1 /* Info.plist */,
 			);
 			path = Validation;
@@ -893,7 +927,8 @@
 		DDE0486D27C2CF4100033AB1 /* ValidationTests */ = {
 			isa = PBXGroup;
 			children = (
-				DDE0486E27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift */,
+				DDE3207927CFB1C800D7F5CA /* Protocols */,
+				DDE3207A27CFB1E300D7F5CA /* Validators */,
 				DDE0487027C2CF4100033AB1 /* Info.plist */,
 			);
 			path = ValidationTests;
@@ -989,6 +1024,67 @@
 				DDE3206027CA726000D7F5CA /* MainQueueDispatchDecorator.swift */,
 			);
 			path = Decorators;
+			sourceTree = "<group>";
+		};
+		DDE3206827CF9EB300D7F5CA /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				DDE0487827C4627300033AB1 /* ActiveValidatorAdapter.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		DDE3206A27CF9EED00D7F5CA /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				DDE0486E27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		DDE3207227CFAE9F00D7F5CA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DDE3206227CF9D6400D7F5CA /* Validation.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DDE3207427CFAEFC00D7F5CA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DDE3207527CFAF0C00D7F5CA /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				DDE3207627CFAF1A00D7F5CA /* RequiredFieldValidation.swift */,
+				DDE3207D27CFBFF000D7F5CA /* ActiveValidation.swift */,
+				DDE3208127CFCF6A00D7F5CA /* ValidationComposite.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		DDE3207927CFB1C800D7F5CA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */,
+				DDE3208327CFCFDA00D7F5CA /* ValidationSpy.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DDE3207A27CFB1E300D7F5CA /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				DDE3207027CFA8B300D7F5CA /* RequiredFieldValidationTests.swift */,
+				DDE3207B27CFB59600D7F5CA /* ActiveValidationTests.swift */,
+				DDE3207F27CFC17900D7F5CA /* ValidationCompositeTests.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1187,6 +1283,7 @@
 			);
 			dependencies = (
 				DDDFC4F527AF372D0062CE1E /* PBXTargetDependency */,
+				DDE3206F27CF9F5B00D7F5CA /* PBXTargetDependency */,
 			);
 			name = Infra;
 			packageProductDependencies = (
@@ -1550,7 +1647,7 @@
 				DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */,
 				DDAC2DA927C16D1A00B2DB8D /* LoadingView.swift in Sources */,
 				DDA825DE27BDC2780039CA19 /* AlertView.swift in Sources */,
-				DDA825E327BDC8E30039CA19 /* ActiveValidator.swift in Sources */,
+				DDE3206327CF9D6400D7F5CA /* Validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1562,8 +1659,8 @@
 				DDAC2DB627C17E5400B2DB8D /* LoadingViewSpy.swift in Sources */,
 				DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */,
 				DDE048D327C706A000033AB1 /* TestExtensions.swift in Sources */,
-				DDAC2DB327C17E0400B2DB8D /* ActiveValidatorSpy.swift in Sources */,
 				DD4DC30127BC7AD900C5A08C /* ActivePresenterTests.swift in Sources */,
+				DDE3206727CF9E2600D7F5CA /* ValidationSpy.swift in Sources */,
 				DDE3205D27CA5B5B00D7F5CA /* TestFactories.swift in Sources */,
 				DDAC2DB027C17D7400B2DB8D /* AlertViewSpy.swift in Sources */,
 			);
@@ -1628,6 +1725,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE3206927CF9EC900D7F5CA /* ActiveValidatorAdapter.swift in Sources */,
 				DDDFC4FD27B03F9F0062CE1E /* AlamofireAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1640,6 +1738,7 @@
 				DDDFC4E927AF354D0062CE1E /* AlamofireAdapterTests.swift in Sources */,
 				DDDFC4F727AF377C0062CE1E /* TestExtensions.swift in Sources */,
 				DDDFC50127B041A00062CE1E /* UrlProtocolStub.swift in Sources */,
+				DDE3206B27CF9F0300D7F5CA /* ActiveValidatorAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1655,7 +1754,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDE0487927C4627300033AB1 /* ActiveValidatorAdapter.swift in Sources */,
+				DDE3207727CFAF1A00D7F5CA /* RequiredFieldValidation.swift in Sources */,
+				DDE3206427CF9DB900D7F5CA /* ActiveValidator.swift in Sources */,
+				DDE3208227CFCF6A00D7F5CA /* ValidationComposite.swift in Sources */,
+				DDE3207E27CFBFF000D7F5CA /* ActiveValidation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1663,7 +1765,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDE0486F27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift in Sources */,
+				DDE3208027CFC17900D7F5CA /* ValidationCompositeTests.swift in Sources */,
+				DDE3207C27CFB59600D7F5CA /* ActiveValidationTests.swift in Sources */,
+				DDE3207127CFA8B300D7F5CA /* RequiredFieldValidationTests.swift in Sources */,
+				DDE3208427CFCFDA00D7F5CA /* ValidationSpy.swift in Sources */,
+				DDE3207827CFB08E00D7F5CA /* TestExtensions.swift in Sources */,
+				DDE3206527CF9DE700D7F5CA /* ActiveValidatorSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1686,6 +1793,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDE3205A27CA58D000D7F5CA /* ActiveModelFactory.swift in Sources */,
+				DDE3208627D0541800D7F5CA /* ActiveValidatorSpy.swift in Sources */,
 				DDE048D127C700E000033AB1 /* ReadActiveSpy.swift in Sources */,
 				DDE3205E27CA5BCB00D7F5CA /* TestFactories.swift in Sources */,
 				DDE048D227C7015A00033AB1 /* TestExtensions.swift in Sources */,
@@ -1803,6 +1911,11 @@
 			isa = PBXTargetDependency;
 			target = DDE0486027C2CF4100033AB1 /* Validation */;
 			targetProxy = DDE048C427C4668D00033AB1 /* PBXContainerItemProxy */;
+		};
+		DDE3206F27CF9F5B00D7F5CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDE0486027C2CF4100033AB1 /* Validation */;
+			targetProxy = DDE3206E27CF9F5B00D7F5CA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

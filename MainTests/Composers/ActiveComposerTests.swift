@@ -9,6 +9,7 @@ import XCTest
 import Main
 import UI
 import Domain
+import Validation
 
 class ActiveComposerTests: XCTestCase {
 
@@ -22,6 +23,12 @@ class ActiveComposerTests: XCTestCase {
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1)
+    }
+    
+    func test_active_compose_with_correct_validations() {
+        let validations = ActiveComposer.makeValidations()
+        XCTAssertEqual(validations[0] as! RequiredFieldValidation, RequiredFieldValidation(fieldName: "codes", fieldLabel: "ativos"))
+        XCTAssertEqual(validations[1] as! ActiveValidation, ActiveValidation(fieldName: "codes", fieldLabel: "ativos", activeValidator: ActiveValidatorSpy()))
     }
 }
 

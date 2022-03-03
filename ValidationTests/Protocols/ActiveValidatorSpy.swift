@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Presentation
+import Validation
 
 class ActiveValidatorSpy: ActiveValidator {
     var isValid = true

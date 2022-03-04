@@ -18,7 +18,7 @@ public final class ActiveComposer {
         let controller = ActiveViewController.instantiate()
         let validationComposite = ValidationComposite(validations: makeValidations())
         let presenter = ActivePresenter(alertView: WeakVarProxy(controller), readActive: readActive, loadingView: WeakVarProxy(controller),
-                                        validation: validationComposite)
+                                        validation: validationComposite, presenterView: WeakVarProxy(controller))
         controller.activeMethod = presenter.listActive
         return controller
     }

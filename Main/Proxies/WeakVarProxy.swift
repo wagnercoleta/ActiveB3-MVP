@@ -7,6 +7,7 @@
 
 import Foundation
 import Presentation
+import Domain
 
 //Designer Pather Proxy - Insere uma camada para remover referência ciclica e evitar memory leak
 final class WeakVarProxy<T: AnyObject> {
@@ -26,6 +27,12 @@ extension WeakVarProxy: AlertView where T: AlertView {
 extension WeakVarProxy: LoadingView where T: LoadingView {
     func display(viewModel: LoadingViewModel) {
         instance?.display(viewModel: viewModel)
+    }
+}
+
+extension WeakVarProxy: PresenterView where T: PresenterView {
+    func loadItens(activeModels: [ActiveModel]) {
+        instance?.loadItens(activeModels: activeModels)
     }
 }
 

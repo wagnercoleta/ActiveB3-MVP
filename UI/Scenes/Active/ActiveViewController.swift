@@ -64,6 +64,15 @@ extension ActiveViewController: AlertView {
     }
 }
 
+extension ActiveViewController: PresenterView {
+    public func loadItens(activeModels: [ActiveModel]) {
+        actives = activeModels
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}
+
 extension ActiveViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return actives.count

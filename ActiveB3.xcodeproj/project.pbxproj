@@ -103,6 +103,8 @@
 		DDE3208227CFCF6A00D7F5CA /* ValidationComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3208127CFCF6A00D7F5CA /* ValidationComposite.swift */; };
 		DDE3208427CFCFDA00D7F5CA /* ValidationSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3208327CFCFDA00D7F5CA /* ValidationSpy.swift */; };
 		DDE3208627D0541800D7F5CA /* ActiveValidatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */; };
+		DDE3208827D18C3800D7F5CA /* PresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3208727D18C3800D7F5CA /* PresenterView.swift */; };
+		DDE3208A27D1900200D7F5CA /* PresenterViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3208927D1900200D7F5CA /* PresenterViewSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -408,6 +410,8 @@
 		DDE3207F27CFC17900D7F5CA /* ValidationCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationCompositeTests.swift; sourceTree = "<group>"; };
 		DDE3208127CFCF6A00D7F5CA /* ValidationComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationComposite.swift; sourceTree = "<group>"; };
 		DDE3208327CFCFDA00D7F5CA /* ValidationSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationSpy.swift; sourceTree = "<group>"; };
+		DDE3208727D18C3800D7F5CA /* PresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterView.swift; sourceTree = "<group>"; };
+		DDE3208927D1900200D7F5CA /* PresenterViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterViewSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,6 +570,7 @@
 			children = (
 				DDA825DD27BDC2780039CA19 /* AlertView.swift */,
 				DDAC2DA827C16D1A00B2DB8D /* LoadingView.swift */,
+				DDE3208727D18C3800D7F5CA /* PresenterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 			children = (
 				DDAC2DAF27C17D7400B2DB8D /* AlertViewSpy.swift */,
 				DDAC2DB527C17E5400B2DB8D /* LoadingViewSpy.swift */,
+				DDE3208927D1900200D7F5CA /* PresenterViewSpy.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1646,6 +1652,7 @@
 				DDAC2DAC27C17B1500B2DB8D /* ReadActiveViewModel.swift in Sources */,
 				DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */,
 				DDAC2DA927C16D1A00B2DB8D /* LoadingView.swift in Sources */,
+				DDE3208827D18C3800D7F5CA /* PresenterView.swift in Sources */,
 				DDA825DE27BDC2780039CA19 /* AlertView.swift in Sources */,
 				DDE3206327CF9D6400D7F5CA /* Validation.swift in Sources */,
 			);
@@ -1657,6 +1664,7 @@
 			files = (
 				DDAC2DB927C17ED900B2DB8D /* ReadActiveSpy.swift in Sources */,
 				DDAC2DB627C17E5400B2DB8D /* LoadingViewSpy.swift in Sources */,
+				DDE3208A27D1900200D7F5CA /* PresenterViewSpy.swift in Sources */,
 				DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */,
 				DDE048D327C706A000033AB1 /* TestExtensions.swift in Sources */,
 				DD4DC30127BC7AD900C5A08C /* ActivePresenterTests.swift in Sources */,

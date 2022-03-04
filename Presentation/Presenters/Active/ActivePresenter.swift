@@ -24,13 +24,16 @@ public final class ActivePresenter {
     private let readActive: ReadActive
     private let loadingView: LoadingView
     private let validation: Validation
+    private let presenterView: PresenterView
     
     public init(alertView: AlertView, readActive: ReadActive,
-                loadingView: LoadingView, validation: Validation) {
+                loadingView: LoadingView, validation: Validation,
+                presenterView: PresenterView) {
         self.alertView = alertView
         self.readActive = readActive
         self.loadingView = loadingView
         self.validation = validation
+        self.presenterView = presenterView
     }
     
     public func listActive(viewModel: ReadActiveViewModel){
@@ -49,7 +52,9 @@ public final class ActivePresenter {
                 self.loadingView.display(viewModel: LoadingViewModel(isLoading: false))
                 switch result {
                 case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleError, message: ActivePresenterConstans.messageErrorInesperado))
-                case .success: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleSuccess, message: ActivePresenterConstans.messageSuccess))
+                case .success(let activeModels):
+                    self.presenterView.loadItens(activeModels: activeModels!)
+                    self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleSuccess, message: ActivePresenterConstans.messageSuccess))
                 }
             }
         }

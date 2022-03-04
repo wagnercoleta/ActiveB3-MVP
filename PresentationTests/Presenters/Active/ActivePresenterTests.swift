@@ -103,7 +103,10 @@ extension ActivePresenterTests {
         let readActiveSpy = ReadActiveSpy()
         let loadingViewSpy = LoadingViewSpy()
         let validationSpy = ValidationSpy()
-        let sut = ActivePresenter(alertView: alertViewSpy, readActive: readActiveSpy, loadingView: loadingViewSpy, validation: validationSpy)
+        let presenterViewSpy = PresenterViewSpy()
+        let sut = ActivePresenter(alertView: alertViewSpy, readActive: readActiveSpy,
+                                  loadingView: loadingViewSpy, validation: validationSpy,
+                                  presenterView: presenterViewSpy)
         checkMemoryLeak(for: sut, file: file, line: line)
         return (sut, alertViewSpy, readActiveSpy, loadingViewSpy, validationSpy)
     }

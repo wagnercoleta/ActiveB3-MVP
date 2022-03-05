@@ -23,54 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4423C341-A70B-4C58-B40D-26DFABD5997D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UseCasesIntegrationTests/ReadActiveIntegrationTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "test_read_active()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4423C341-A70B-4C58-B40D-26DFABD5997D - 3499b0dabe2fe8c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Domain.ActiveModel&gt;&gt;, Domain.DomainError&gt;) -&gt; () in UseCasesIntegrationTests.ReadActiveIntegrationTests.test_read_active() -&gt; ()"
-                  moduleName = "UseCasesIntegrationTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Projetos/xcode/ActiveB3/UseCasesIntegrationTests/ReadActiveIntegrationTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "236">
-               </Location>
-               <Location
-                  uuid = "4423C341-A70B-4C58-B40D-26DFABD5997D - 3499b0dabe2fe8c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;Domain.ActiveModel&gt;&gt;, Domain.DomainError&gt;) -&gt; () in UseCasesIntegrationTests.ReadActiveIntegrationTests.test_read_active() -&gt; ()"
-                  moduleName = "UseCasesIntegrationTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Projetos/xcode/ActiveB3/UseCasesIntegrationTests/ReadActiveIntegrationTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "254">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4F56E8AC-A256-4DBA-A266-971A5C4361DF"
             shouldBeEnabled = "No"
             ignoreCount = "0"

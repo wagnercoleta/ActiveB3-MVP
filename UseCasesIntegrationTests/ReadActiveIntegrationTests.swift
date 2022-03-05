@@ -15,11 +15,8 @@ class ReadActiveIntegrationTests: XCTestCase {
     func test_read_active() {
         
         let ativoPETR4 = "PETR4"
-        let encodedAtivos = ativoPETR4
-        let encodedUrlFinal = encodedAtivos.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
         let basePath = "https://bvmf.bmfbovespa.com.br/cotacoes2000/FormConsultaCotacoes.asp?strListaCodigos="
-        let stringUrl = basePath + encodedUrlFinal!
-        let url = URL(string: stringUrl)!
+        let url = URL(string: basePath)!
         
         let alamofireAdapter = AlamofireAdapter()
         let sut = RemoteReadActive(url: url, httpClient: alamofireAdapter)

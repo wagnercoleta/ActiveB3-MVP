@@ -26,7 +26,7 @@ class ActiveComposerTests: XCTestCase {
     }
     
     func test_active_compose_with_correct_validations() {
-        let validations = ActiveComposer.makeValidations()
+        let validations = makeActiveValidations()
         XCTAssertEqual(validations[0] as! RequiredFieldValidation, RequiredFieldValidation(fieldName: "codes", fieldLabel: "ativos"))
         XCTAssertEqual(validations[1] as! ActiveValidation, ActiveValidation(fieldName: "codes", fieldLabel: "ativos", activeValidator: ActiveValidatorSpy()))
     }
@@ -36,7 +36,7 @@ extension ActiveComposerTests {
     func makeSut(file: StaticString = #filePath, line: UInt = #line) -> (sut: ActiveViewController, readActiveSpy: ReadActiveSpy) {
         let readActiveSpy = ReadActiveSpy()
         let remoteReadActiveDecorator = MainQueueDispatchDecorator(readActiveSpy)
-        let sut = ActiveComposer.composeControllerWith(readActive: remoteReadActiveDecorator)
+        let sut = makeActiveController(readActive: remoteReadActiveDecorator)
         checkMemoryLeak(for: sut, file: file, line: line)
         checkMemoryLeak(for: readActiveSpy, file: file, line: line)
         return (sut, readActiveSpy)

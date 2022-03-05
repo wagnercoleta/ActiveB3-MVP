@@ -17,7 +17,7 @@ public final class RemoteReadActive: ReadActive {
         self.httpClient = httpClient
     }
     
-    public func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel]?, DomainError>) -> Void) {
+    public func read(readActiveModels: [ReadActiveModel], completion: @escaping (ReadActive.Result) -> Void) {
         if let urlQuery = getURLQuery(urlBase: self.url, readActiveModels: readActiveModels) {
             httpClient.get(to: urlQuery) { [weak self] result in
                 guard self != nil else { return }

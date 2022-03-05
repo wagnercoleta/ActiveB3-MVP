@@ -10,9 +10,9 @@ import Domain
 
 class ReadActiveSpy: ReadActive {
     var readActiveModels: [ReadActiveModel]?
-    var completion: ((Result<[ActiveModel]?, DomainError>) -> Void)?
+    var completion: ((ReadActive.Result) -> Void)?
     
-    func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel]?, DomainError>) -> Void) {
+    func read(readActiveModels: [ReadActiveModel], completion: @escaping (ReadActive.Result) -> Void) {
         self.readActiveModels = readActiveModels
         self.completion = completion
     }

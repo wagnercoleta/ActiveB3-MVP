@@ -53,7 +53,7 @@ class RemoteReadActiveTests: XCTestCase {
     func test_read_should_not_complete_if_sut_has_been_deallocated() {
         let httpClientSpy = HttpClientSpy()
         var sut: RemoteReadActive? = RemoteReadActive(url: makeUrl(), httpClient: httpClientSpy)
-        var resultTemp: Result<[ActiveModel]?, DomainError>?
+        var resultTemp: ReadActive.Result?
         sut?.read(readActiveModels: makeReadActiveModels()) { result in
             resultTemp = result
         }

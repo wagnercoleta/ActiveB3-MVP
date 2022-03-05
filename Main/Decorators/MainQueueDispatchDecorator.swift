@@ -24,7 +24,7 @@ public final class MainQueueDispatchDecorator<T> {
 }
 
 extension MainQueueDispatchDecorator: ReadActive where T: ReadActive {
-    public func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel]?, DomainError>) -> Void) {
+    public func read(readActiveModels: [ReadActiveModel], completion: @escaping (ReadActive.Result) -> Void) {
         instance.read(readActiveModels: readActiveModels) { [weak self] result in
             self?.dispatch {
                 completion(result)
@@ -54,7 +54,7 @@ public final class RemoteReadActiveDecorator: BaseMainQueueDispatchDecorator<Rea
         super.init(instance)
     }
     
-    public func read(readActiveModels: [ReadActiveModel], completion: @escaping (Result<[ActiveModel]?, DomainError>) -> Void) {
+    public func read(readActiveModels: [ReadActiveModel], completion: @escaping (ReadActive.Result) -> Void) {
         instance.read(readActiveModels: readActiveModels) { result in
             self.dispatch {
                 completion(result)

@@ -78,8 +78,8 @@
             filePath = "DataTests/UseCases/RemoteReadActiveTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "test_read_should_complete_with_active_if_client_completes_with_valid_data()"
             landmarkType = "7">
          </BreakpointContent>

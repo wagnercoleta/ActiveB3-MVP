@@ -27,6 +27,13 @@ class RemoteReadActiveTests: XCTestCase {
         })
     }
     
+    func test_read_should_complete_with_active_in_use_error_if_client_completes_with_error_forbidden() {
+        let (sut, httpClientSpy) = makeSut()
+        expect(sut, completeWith: .failure(.activeInUse), when: {
+            httpClientSpy.completeWithError(.forbidden)
+        })
+    }
+    
     func test_read_should_complete_with_active_if_client_completes_with_valid_data() {
         let (sut, httpClientSpy) = makeSut()
         let expectedActives = makeActiveModels()

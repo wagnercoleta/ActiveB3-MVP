@@ -32,7 +32,13 @@ public final class RemoteReadActive: ReadActive {
                                 completion(.failure(.unexpected))
                             }
                         }
-                    case .failure: completion(.failure(.unexpected))
+                    case .failure(let error):
+                        switch error {
+                        case .forbidden:
+                            completion(.failure(.activeInUse))
+                        default:
+                            completion(.failure(.unexpected))
+                        }
                 }
             }
         } else {

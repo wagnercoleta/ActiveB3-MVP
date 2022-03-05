@@ -46,7 +46,7 @@ class ActivePresenterTests: XCTestCase {
         wait(for: [exp], timeout: 1)
     }
     
-    func test_should_show_error_message_if_readActive_fails() {
+    func test_should_show_generic_error_message_if_readActive_fails() {
         let (sut, alertViewSpy, readActiveSpy, _, _) = makeSut()
         let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3"])
         let exp = expectation(description: "waiting")
@@ -57,6 +57,20 @@ class ActivePresenterTests: XCTestCase {
         }
         sut.listActive(viewModel: readActiveViewModel)
         readActiveSpy.completeWithError(.unexpected)
+        wait(for: [exp], timeout: 1)
+    }
+    
+    func test_should_show_active_in_use_error_message_if_readActive_returns_active_in_use_error() {
+        let (sut, alertViewSpy, readActiveSpy, _, _) = makeSut()
+        let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3"])
+        let exp = expectation(description: "waiting")
+        alertViewSpy.observe { [weak self] viewModel in
+            XCTAssertEqual(viewModel, self?.makeAlertViewModel(ActivePresenterConstans.titleError,
+                                                               ActivePresenterConstans.messageErrorActiveInUse))
+            exp.fulfill()
+        }
+        sut.listActive(viewModel: readActiveViewModel)
+        readActiveSpy.completeWithError(.activeInUse)
         wait(for: [exp], timeout: 1)
     }
     

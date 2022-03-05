@@ -17,6 +17,7 @@ public struct ActivePresenterConstans {
     public static let messageActiveInvalid = NSLocalizedString("A lista de códigos dos ativos a serem retornados é inválida.", comment: "")
     public static let messageErrorInesperado = NSLocalizedString("Algo inesperado aconteceu, tente novamente mais tarde.", comment: "")
     public static let messageSuccess = NSLocalizedString("Dados processados com sucesso.", comment: "")
+    public static let messageErrorActiveInUse = NSLocalizedString("Esse ativo já está em uso.", comment: "")
 }
 
 public final class ActivePresenter {
@@ -51,7 +52,15 @@ public final class ActivePresenter {
                 guard let self = self else { return }
                 self.loadingView.display(viewModel: LoadingViewModel(isLoading: false))
                 switch result {
-                case .failure: self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleError, message: ActivePresenterConstans.messageErrorInesperado))
+                case .failure(let error):
+                    var errorMessage: String!
+                    switch error {
+                    case .activeInUse:
+                        errorMessage = ActivePresenterConstans.messageErrorActiveInUse
+                    default:
+                        errorMessage = ActivePresenterConstans.messageErrorInesperado
+                    }
+                    self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleError, message: errorMessage))
                 case .success(let activeModels):
                     self.presenterView.loadItens(activeModels: activeModels!)
                     self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleSuccess, message: ActivePresenterConstans.messageSuccess))

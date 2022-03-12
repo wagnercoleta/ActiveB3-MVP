@@ -12,3 +12,6 @@ func makeAlamofireAdapter() -> AlamofireAdapter {
     return AlamofireAdapter()
 }
 
+func makeAlamofireAdapterMock() -> AlamofireAdapterMock {
+    return AlamofireAdapterMock()
+}

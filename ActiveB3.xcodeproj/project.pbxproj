@@ -13,6 +13,8 @@
 		DD52F2EC27DCE50800506B31 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52F2EB27DCE50800506B31 /* UIColorExtension.swift */; };
 		DD52F2EE27DCE67100506B31 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52F2ED27DCE67100506B31 /* Color.swift */; };
 		DD52F2F127DD105100506B31 /* ValidationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52F2F027DD105100506B31 /* ValidationBuilder.swift */; };
+		DD52F2F227DD25FD00506B31 /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4CF27AF329C0062CE1E /* TestFactories.swift */; };
+		DD52F2F427DD294200506B31 /* AlamofireAdapterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52F2F327DD294200506B31 /* AlamofireAdapterMock.swift */; };
 		DDA825D527BDC0D70039CA19 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC48927AEA3290062CE1E /* Domain.framework */; };
 		DDA825D627BDC0D70039CA19 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC48927AEA3290062CE1E /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */; };
@@ -338,6 +340,7 @@
 		DD52F2EB27DCE50800506B31 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		DD52F2ED27DCE67100506B31 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		DD52F2F027DD105100506B31 /* ValidationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationBuilder.swift; sourceTree = "<group>"; };
+		DD52F2F327DD294200506B31 /* AlamofireAdapterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireAdapterMock.swift; sourceTree = "<group>"; };
 		DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePresenter.swift; sourceTree = "<group>"; };
 		DDA825DD27BDC2780039CA19 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidator.swift; sourceTree = "<group>"; };
@@ -879,6 +882,7 @@
 			isa = PBXGroup;
 			children = (
 				DDDFC4FC27B03F9F0062CE1E /* AlamofireAdapter.swift */,
+				DD52F2F327DD294200506B31 /* AlamofireAdapterMock.swift */,
 			);
 			path = Http;
 			sourceTree = "<group>";
@@ -1797,6 +1801,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD52F2F427DD294200506B31 /* AlamofireAdapterMock.swift in Sources */,
+				DD52F2F227DD25FD00506B31 /* TestFactories.swift in Sources */,
 				DDE3206927CF9EC900D7F5CA /* ActiveValidatorAdapter.swift in Sources */,
 				DDDFC4FD27B03F9F0062CE1E /* AlamofireAdapter.swift in Sources */,
 			);

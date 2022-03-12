@@ -27,6 +27,10 @@ public final class ActiveViewController: UIViewController, Storyboarded {
     }
     
     private func configure() {
+        title = "Ativo B3"
+        view.backgroundColor = Color.primary
+        tableView.backgroundColor = Color.primary
+        
         loadButton?.layer.cornerRadius = 5
         loadButton?.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
         

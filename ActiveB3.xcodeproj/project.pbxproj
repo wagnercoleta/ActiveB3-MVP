@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		DD4DC2FC27BC7AD900C5A08C /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4DC2F327BC7AD900C5A08C /* Presentation.framework */; };
 		DD4DC30127BC7AD900C5A08C /* ActivePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4DC30027BC7AD900C5A08C /* ActivePresenterTests.swift */; };
+		DD52F2EA27DCDD5D00506B31 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52F2E927DCDD5D00506B31 /* NavigationController.swift */; };
+		DD52F2EC27DCE50800506B31 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52F2EB27DCE50800506B31 /* UIColorExtension.swift */; };
+		DD52F2EE27DCE67100506B31 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD52F2ED27DCE67100506B31 /* Color.swift */; };
 		DDA825D527BDC0D70039CA19 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC48927AEA3290062CE1E /* Domain.framework */; };
 		DDA825D627BDC0D70039CA19 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDDFC48927AEA3290062CE1E /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */; };
@@ -330,6 +333,9 @@
 		DD4DC2FB27BC7AD900C5A08C /* PresentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4DC30027BC7AD900C5A08C /* ActivePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePresenterTests.swift; sourceTree = "<group>"; };
 		DD4DC30227BC7AD900C5A08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD52F2E927DCDD5D00506B31 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		DD52F2EB27DCE50800506B31 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		DD52F2ED27DCE67100506B31 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePresenter.swift; sourceTree = "<group>"; };
 		DDA825DD27BDC2780039CA19 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidator.swift; sourceTree = "<group>"; };
@@ -571,6 +577,14 @@
 			path = PresentationTests;
 			sourceTree = "<group>";
 		};
+		DD52F2E827DCDD4100506B31 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD52F2E927DCDD5D00506B31 /* NavigationController.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		DDA825DC27BDC2500039CA19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +665,7 @@
 		DDAC2DC027C1899300B2DB8D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DD52F2E827DCDD4100506B31 /* Components */,
 				DDE0485727C2C61800033AB1 /* Helpers */,
 				DDAC2DC227C1899300B2DB8D /* Info.plist */,
 				DDE0485227C27FD700033AB1 /* Scenes */,
@@ -922,6 +937,8 @@
 			children = (
 				DDE0485827C2C63B00033AB1 /* UIViewControllerExtension.swift */,
 				DDE0485A27C2C88500033AB1 /* Storyboarded.swift */,
+				DD52F2EB27DCE50800506B31 /* UIColorExtension.swift */,
+				DD52F2ED27DCE67100506B31 /* Color.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1712,8 +1729,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDE0485927C2C63B00033AB1 /* UIViewControllerExtension.swift in Sources */,
+				DD52F2EA27DCDD5D00506B31 /* NavigationController.swift in Sources */,
+				DD52F2EC27DCE50800506B31 /* UIColorExtension.swift in Sources */,
 				DDAC2DDC27C18E6500B2DB8D /* ActiveViewController.swift in Sources */,
 				DDE0485B27C2C88500033AB1 /* Storyboarded.swift in Sources */,
+				DD52F2EE27DCE67100506B31 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

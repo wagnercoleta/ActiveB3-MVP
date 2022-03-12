@@ -37,7 +37,7 @@ public final class ActivePresenter {
         self.presenterView = presenterView
     }
     
-    public func listActive(viewModel: ReadActiveViewModel){
+    public func listActive(viewModel: ReadActiveRequest){
         if let message = validation.validate(data: viewModel.toJson()) {
             alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleAlert, message: message))
         } else {

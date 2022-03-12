@@ -15,7 +15,7 @@
 		DDA825DE27BDC2780039CA19 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA825DD27BDC2780039CA19 /* AlertView.swift */; };
 		DDA825E427BF23EF0039CA19 /* ActiveModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFC4D427AF33CE0062CE1E /* ActiveModelFactory.swift */; };
 		DDAC2DA927C16D1A00B2DB8D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DA827C16D1A00B2DB8D /* LoadingView.swift */; };
-		DDAC2DAC27C17B1500B2DB8D /* ReadActiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */; };
+		DDAC2DAC27C17B1500B2DB8D /* ReadActiveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DAB27C17B1500B2DB8D /* ReadActiveRequest.swift */; };
 		DDAC2DB027C17D7400B2DB8D /* AlertViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DAF27C17D7400B2DB8D /* AlertViewSpy.swift */; };
 		DDAC2DB627C17E5400B2DB8D /* LoadingViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB527C17E5400B2DB8D /* LoadingViewSpy.swift */; };
 		DDAC2DB927C17ED900B2DB8D /* ReadActiveSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC2DB827C17ED900B2DB8D /* ReadActiveSpy.swift */; };
@@ -334,7 +334,7 @@
 		DDA825DD27BDC2780039CA19 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		DDA825E227BDC8E30039CA19 /* ActiveValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidator.swift; sourceTree = "<group>"; };
 		DDAC2DA827C16D1A00B2DB8D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadActiveViewModel.swift; sourceTree = "<group>"; };
+		DDAC2DAB27C17B1500B2DB8D /* ReadActiveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadActiveRequest.swift; sourceTree = "<group>"; };
 		DDAC2DAF27C17D7400B2DB8D /* AlertViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewSpy.swift; sourceTree = "<group>"; };
 		DDAC2DB227C17E0400B2DB8D /* ActiveValidatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidatorSpy.swift; sourceTree = "<group>"; };
 		DDAC2DB527C17E5400B2DB8D /* LoadingViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewSpy.swift; sourceTree = "<group>"; };
@@ -609,7 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA825DA27BDC0F00039CA19 /* ActivePresenter.swift */,
-				DDAC2DAB27C17B1500B2DB8D /* ReadActiveViewModel.swift */,
+				DDAC2DAB27C17B1500B2DB8D /* ReadActiveRequest.swift */,
 			);
 			path = Active;
 			sourceTree = "<group>";
@@ -1682,7 +1682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDAC2DAC27C17B1500B2DB8D /* ReadActiveViewModel.swift in Sources */,
+				DDAC2DAC27C17B1500B2DB8D /* ReadActiveRequest.swift in Sources */,
 				DDA825DB27BDC0F00039CA19 /* ActivePresenter.swift in Sources */,
 				DDAC2DA927C16D1A00B2DB8D /* LoadingView.swift in Sources */,
 				DDE3208827D18C3800D7F5CA /* PresenterView.swift in Sources */,

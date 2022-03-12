@@ -8,7 +8,7 @@
 import Foundation
 import Domain
 
-public struct ReadActiveViewModel: Model {
+public struct ReadActiveRequest: Model {
     public var codes: [String]?
     
     public init(codes: [String]?){

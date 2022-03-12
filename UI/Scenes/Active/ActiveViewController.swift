@@ -17,7 +17,7 @@ public final class ActiveViewController: UIViewController, Storyboarded {
     @IBOutlet weak var codeActiveTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    public var activeMethod: ((ReadActiveViewModel) -> Void)?
+    public var activeMethod: ((ReadActiveRequest) -> Void)?
     
     private var actives = [ActiveModel]()
     
@@ -30,6 +30,7 @@ public final class ActiveViewController: UIViewController, Storyboarded {
         loadButton?.layer.cornerRadius = 5
         loadButton?.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
         
+        tableView.separatorStyle = .none
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         
@@ -39,7 +40,7 @@ public final class ActiveViewController: UIViewController, Storyboarded {
     @objc private func loadButtonTapped() {
         if let codeActive = codeActiveTextField?.text {
             let codesArray = codeActive.components(separatedBy: ",")
-            activeMethod?(ReadActiveViewModel(codes: codesArray))
+            activeMethod?(ReadActiveRequest(codes: codesArray))
         }
     }
 }

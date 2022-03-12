@@ -8,7 +8,7 @@
 import Foundation
 import Presentation
 
-func makeReadActiveViewModel() -> ReadActiveViewModel {
-    let readActiveViewModel = ReadActiveViewModel(codes: ["PETR4", "MGLU3"])
+func makeReadActiveViewModel() -> ReadActiveRequest {
+    let readActiveViewModel = ReadActiveRequest(codes: ["PETR4", "MGLU3"])
     return readActiveViewModel
 }

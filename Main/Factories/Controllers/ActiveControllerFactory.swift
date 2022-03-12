@@ -22,8 +22,11 @@ public func makeActiveController(readActive: ReadActive) -> ActiveViewController
 }
 
 public func makeActiveValidations() -> [Validation] {
-    return [
-        RequiredFieldValidation(fieldName: "codes", fieldLabel: "ativos"),
-        ActiveValidation(fieldName: "codes", fieldLabel: "ativos", activeValidator: makeActiveValidatorAdapter())
-    ]
+    return
+        ValidationBuilder.field("codes").label("ativos").required().build() +
+        ValidationBuilder.field("codes").label("ativos").active().build()
+//    return [
+//        RequiredFieldValidation(fieldName: "codes", fieldLabel: "ativos"),
+//        ActiveValidation(fieldName: "codes", fieldLabel: "ativos", activeValidator: makeActiveValidatorAdapter())
+//    ]
 }

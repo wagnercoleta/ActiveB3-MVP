@@ -29,14 +29,19 @@ public final class ActiveViewController: UIViewController, Storyboarded {
     private func configure() {
         title = "Ativo B3"
         view.backgroundColor = Color.primary
+        
         tableView.backgroundColor = Color.primary
+        tableView.isScrollEnabled = false
+        tableView.separatorStyle = .none
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //tableView.register(UINib(nibName: "ActiveCell", bundle: nil), forCellReuseIdentifier: "cellID")
         
         loadButton?.layer.cornerRadius = 5
         loadButton?.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
-        
-        tableView.separatorStyle = .none
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.dataSource = self
         
         hideKeyboardOnTap()
     }
@@ -78,7 +83,7 @@ extension ActiveViewController: PresenterView {
     }
 }
 
-extension ActiveViewController: UITableViewDataSource {
+extension ActiveViewController: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return actives.count
     }
@@ -88,5 +93,9 @@ extension ActiveViewController: UITableViewDataSource {
         let codeActive = actives[indexPath.row].code
         cell.textLabel?.text = codeActive
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }

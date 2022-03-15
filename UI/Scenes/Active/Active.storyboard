@@ -42,6 +42,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hce-23-9qI">
                                 <rect key="frame" x="20" y="146" width="374" height="701"/>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.396078431372549" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

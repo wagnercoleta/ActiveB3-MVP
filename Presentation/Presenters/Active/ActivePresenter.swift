@@ -63,7 +63,6 @@ public final class ActivePresenter {
                     self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleError, message: errorMessage))
                 case .success(let activeModels):
                     self.presenterView.loadItens(activeModels: activeModels!)
-                    self.alertView.showMessage(viewModel: AlertViewModel(title: ActivePresenterConstans.titleSuccess, message: ActivePresenterConstans.messageSuccess))
                 }
             }
         }

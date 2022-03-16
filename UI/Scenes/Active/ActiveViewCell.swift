@@ -38,7 +38,7 @@ public class ActiveViewCell: UITableViewCell {
     private var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = Color.font
-        label.font = UIFont.boldSystemFont(ofSize: Metrics.subFontSize)
+        label.font = UIFont.systemFont(ofSize: Metrics.subFontSize)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -56,7 +56,7 @@ public class ActiveViewCell: UITableViewCell {
     private var variationLabel: UILabel = {
         let label = UILabel()
         label.textColor = Color.font
-        label.font = UIFont.boldSystemFont(ofSize: Metrics.subFontSize)
+        label.font = UIFont.systemFont(ofSize: Metrics.subFontSize)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

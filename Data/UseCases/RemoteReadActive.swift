@@ -65,8 +65,10 @@ public final class RemoteReadActive: ReadActive {
                     let nome = linha!.sliceByString(from: "Nome=\u{0022}", to: "\u{0022}")
                     var preco = linha!.sliceByString(from: "Ultimo=\u{0022}", to: "\u{0022}")
                     preco = preco?.replacingOccurrences(of: ",", with: ".")
+                    var variation = linha!.sliceByString(from: "Oscilacao=\u{0022}", to: "\u{0022}")
+                    variation = variation?.replacingOccurrences(of: ",", with: ".")
                     
-                    if let vr_preco = Double(preco!) {
+                    if let vr_preco = Double(preco!), let vr_variation = Double(variation!) {
                         
                         let active = ActiveModel(
                             id: "",
@@ -74,7 +76,7 @@ public final class RemoteReadActive: ReadActive {
                             name: nome!,
                             price: vr_preco,
                             priceAlert: 0.0,
-                            variation: 0.0,
+                            variation: vr_variation,
                             operationLarger: false)
                         
                         activeModels.append(active)

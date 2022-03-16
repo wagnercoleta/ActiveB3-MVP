@@ -33,17 +33,19 @@ public final class ActiveViewController: UIViewController, Storyboarded {
         tableView.backgroundColor = Color.primary
         tableView.isScrollEnabled = false
         tableView.separatorStyle = .none
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(ActiveViewCell.self, forCellReuseIdentifier: "cell")
         
         tableView.dataSource = self
         tableView.delegate = self
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        //tableView.register(UINib(nibName: "ActiveCell", bundle: nil), forCellReuseIdentifier: "cellID")
         
         loadButton?.layer.cornerRadius = 5
         loadButton?.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
         
         hideKeyboardOnTap()
+        
+        codeActiveTextField.text = "PETR4"//TESTE RETIRAR DEPOIS
     }
     
     @objc private func loadButtonTapped() {
@@ -89,13 +91,9 @@ extension ActiveViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let codeActive = actives[indexPath.row].code
-        cell.textLabel?.text = codeActive
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ActiveViewCell
+        let active = actives[indexPath.row]
+        cell.setup(item: active)
         return cell
-    }
-    
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
     }
 }

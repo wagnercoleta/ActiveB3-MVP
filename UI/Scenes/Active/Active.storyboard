@@ -29,6 +29,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWr-ww-Nzt">
                                 <rect key="frame" x="100" y="101" width="294" height="30"/>
                                 <color key="backgroundColor" red="0.22352941176470587" green="0.54117647058823526" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Consultar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,7 +47,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.10980392160000001" green="0.39607843139999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.11372549019607843" green="0.36078431372549019" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VcZ-Gc-W5I" firstAttribute="top" secondItem="pz3-uI-Yyu" secondAttribute="top" id="90w-Rq-STQ"/>
                             <constraint firstItem="QWr-ww-Nzt" firstAttribute="height" secondItem="VcZ-Gc-W5I" secondAttribute="height" multiplier="0.882353" id="9QY-lO-t7L"/>

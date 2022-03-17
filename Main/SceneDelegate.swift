@@ -16,7 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let nav = NavigationController()
-        let httpClient = makeAlamofireAdapterMock() //makeAlamofireAdapter()
+        //let httpClient = makeAlamofireAdapterMock()
+        let httpClient = makeAlamofireAdapter()
         let readActive = makeRemoteReadActive(httpClient: httpClient)
         let activeController = makeActiveController(readActive: readActive)
         nav.setRootViewController(activeController)

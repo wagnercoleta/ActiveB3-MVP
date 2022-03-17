@@ -41,14 +41,18 @@ public final class ActiveViewController: UIViewController, Storyboarded {
         tableView.delegate = self
         
         loadButton?.layer.cornerRadius = 5
+        loadButton.setTitleColor(Color.font, for: .normal)
         loadButton?.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
+        
+        codeActiveTextField.textColor = Color.secundary
         
         hideKeyboardOnTap()
         
-        codeActiveTextField.text = "PETR4"//TESTE RETIRAR DEPOIS
+        codeActiveTextField.text = "PETR4,MGLU3,USIM5,GGBR4,FESA4,GOLL4,VALE3,AZUL4"
     }
     
     @objc private func loadButtonTapped() {
+        loadItens(activeModels: [ActiveModel]())
         if let codeActive = codeActiveTextField?.text {
             let codesArray = codeActive.components(separatedBy: ",")
             activeMethod?(ReadActiveRequest(codes: codesArray))
@@ -60,9 +64,11 @@ extension ActiveViewController: LoadingView {
     public func display(viewModel: LoadingViewModel) {
         if viewModel.isLoading {
             view.isUserInteractionEnabled = false // Desabilita todas interações do usuário
+            loadButton.setTitle("", for: .normal)
             loadingIncator?.startAnimating()
         } else {
             view.isUserInteractionEnabled = true // Habilita todas interações do usuário
+            loadButton.setTitle("Consultar", for: .normal)
             loadingIncator?.stopAnimating()
         }
     }

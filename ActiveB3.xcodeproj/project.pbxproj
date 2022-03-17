@@ -397,7 +397,7 @@
 		DDE0486E27C2CF4100033AB1 /* ActiveValidatorAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidatorAdapterTests.swift; sourceTree = "<group>"; };
 		DDE0487027C2CF4100033AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDE0487827C4627300033AB1 /* ActiveValidatorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveValidatorAdapter.swift; sourceTree = "<group>"; };
-		DDE0487E27C4642000033AB1 /* Main.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Main.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDE0487E27C4642000033AB1 /* ActiveB3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActiveB3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE0488027C4642000033AB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDE0488227C4642000033AB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDE0488927C4642300033AB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -736,7 +736,7 @@
 				DDAC2DC727C1899400B2DB8D /* UITests.xctest */,
 				DDE0486127C2CF4100033AB1 /* Validation.framework */,
 				DDE0486927C2CF4100033AB1 /* ValidationTests.xctest */,
-				DDE0487E27C4642000033AB1 /* Main.app */,
+				DDE0487E27C4642000033AB1 /* ActiveB3.app */,
 				DDE0489327C4642400033AB1 /* MainTests.xctest */,
 				DDE0489E27C4642400033AB1 /* MainUITests.xctest */,
 			);
@@ -1441,9 +1441,9 @@
 			productReference = DDE0486927C2CF4100033AB1 /* ValidationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DDE0487D27C4642000033AB1 /* Main */ = {
+		DDE0487D27C4642000033AB1 /* ActiveB3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDE048A527C4642400033AB1 /* Build configuration list for PBXNativeTarget "Main" */;
+			buildConfigurationList = DDE048A527C4642400033AB1 /* Build configuration list for PBXNativeTarget "ActiveB3" */;
 			buildPhases = (
 				DDE0487A27C4642000033AB1 /* Sources */,
 				DDE0487B27C4642000033AB1 /* Frameworks */,
@@ -1460,9 +1460,9 @@
 				DDE048C127C4668D00033AB1 /* PBXTargetDependency */,
 				DDE048C527C4668D00033AB1 /* PBXTargetDependency */,
 			);
-			name = Main;
+			name = ActiveB3;
 			productName = Main;
-			productReference = DDE0487E27C4642000033AB1 /* Main.app */;
+			productReference = DDE0487E27C4642000033AB1 /* ActiveB3.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DDE0489227C4642400033AB1 /* MainTests */ = {
@@ -1594,7 +1594,7 @@
 				DDAC2DC627C1899400B2DB8D /* UITests */,
 				DDE0486027C2CF4100033AB1 /* Validation */,
 				DDE0486827C2CF4100033AB1 /* ValidationTests */,
-				DDE0487D27C4642000033AB1 /* Main */,
+				DDE0487D27C4642000033AB1 /* ActiveB3 */,
 				DDE0489227C4642400033AB1 /* MainTests */,
 				DDE0489D27C4642400033AB1 /* MainUITests */,
 			);
@@ -1960,12 +1960,12 @@
 		};
 		DDE0489527C4642400033AB1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDE0487D27C4642000033AB1 /* Main */;
+			target = DDE0487D27C4642000033AB1 /* ActiveB3 */;
 			targetProxy = DDE0489427C4642400033AB1 /* PBXContainerItemProxy */;
 		};
 		DDE048A027C4642400033AB1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDE0487D27C4642000033AB1 /* Main */;
+			target = DDE0487D27C4642000033AB1 /* ActiveB3 */;
 			targetProxy = DDE0489F27C4642400033AB1 /* PBXContainerItemProxy */;
 		};
 		DDE048B127C4668D00033AB1 /* PBXTargetDependency */ = {
@@ -2990,7 +2990,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDE048A527C4642400033AB1 /* Build configuration list for PBXNativeTarget "Main" */ = {
+		DDE048A527C4642400033AB1 /* Build configuration list for PBXNativeTarget "ActiveB3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DDE048A627C4642400033AB1 /* Debug */,

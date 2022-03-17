@@ -113,8 +113,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DDE0487D27C4642000033AB1"
-               BuildableName = "Main.app"
-               BlueprintName = "Main"
+               BuildableName = "ActiveB3.app"
+               BlueprintName = "ActiveB3"
                ReferencedContainer = "container:ActiveB3.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

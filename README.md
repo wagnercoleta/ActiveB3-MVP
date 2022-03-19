@@ -54,10 +54,10 @@ A camada Validation contem como responsabilidade realizar todas validações que
 
 AppDelegate, SceneDelegate e Info.Plist
 
-Nessa camada, podemos destacar algumas classes de padrões de projeto utilizadas no projeto:
+Nessa camada, podemos destacar algumas classes de padrões de projeto utilizadas:
 
 - ValidationBuilder: Padrão de projeto (Builder) para facilitar a junção de várias validações (Validation) utilizando da concatenação dos métodos.
-- MainQueueDispatchDecorator: Padrão de projeto (Decorator) para adicionar responsabilidade de execução de assincrona na Thread principal por evolver atualização de componentes de UI.
+- MainQueueDispatchDecorator: Padrão de projeto (Decorator) para adicionar responsabilidade de execução assincrona na Thread principal por evolver atualização de componentes de UI.
 - WeakVarProxy: Padrão de projeto (Proxy) para remover referência ciclica e evitar memory leak ao inserir uma camada com referência fraca entre os objetos.
 
 ## Alamofire
@@ -65,6 +65,4 @@ Nessa camada, podemos destacar algumas classes de padrões de projeto utilizadas
 **Link:** https://github.com/Alamofire/Alamofire
 
 **Função:** Alamofire é uma biblioteca de rede HTTP.
-
-**Como foi utilizado?:** Parar criar a camada de serviço e abstrair algumas funções dos Services, o Alamofire é utilizado em todas as requisições
 

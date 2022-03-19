@@ -3,9 +3,6 @@
 ## ScreenShots da Aplicação
 
 ![image](https://i.ibb.co/BLmn7TT/Active-B3-1.png)
-![image](https://i.ibb.co/mHdXrfD/1.png)
-![image](https://i.ibb.co/cwZNhv1/2.png)
-![image](https://i.ibb.co/f174KXK/3.png)
 
 ## Base Arquitetural
 

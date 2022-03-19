@@ -43,6 +43,9 @@ A camada Presenter contem como responsabilidade orquestrar a obteção dos dados
 
 A camda UI contem como responsabilidade fornecer os componentes e recursos para criação de Layouts. Ela também mantem a integração com a camada de bibliotécas de componentes, por exemplo UIKit.
 
+- Active.storyboard: Componente visual (View) construido utilizando de storyboard com autolayout.
+- ActiveViewCell: Componente visual (ViewCell) construido utilizando ViewCode.
+
 **Validation**
 
 A camada Validation contem como responsabilidade realizar todas validações que a camada de UI necessita na entrada de dados na aplicação.

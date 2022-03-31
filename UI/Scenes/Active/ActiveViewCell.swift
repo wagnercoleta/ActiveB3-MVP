@@ -18,7 +18,7 @@ public class ActiveViewCell: UITableViewCell {
         static let subFontSize: CGFloat = 12.0
     }
     
-    private var viewCell: UIView = {
+    private lazy var viewCell: UIView = {
         let view = UIView()
         view.backgroundColor = Color.secundary
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +26,7 @@ public class ActiveViewCell: UITableViewCell {
         return view
     }()
     
-    private var codeLabel: UILabel = {
+    private lazy var codeLabel: UILabel = {
         let label = UILabel()
         label.textColor = Color.font
         label.font = UIFont.boldSystemFont(ofSize: Metrics.fontSize)
@@ -35,7 +35,7 @@ public class ActiveViewCell: UITableViewCell {
         return label
     }()
     
-    private var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = Color.font
         label.font = UIFont.systemFont(ofSize: Metrics.subFontSize)
@@ -44,7 +44,7 @@ public class ActiveViewCell: UITableViewCell {
         return label
     }()
     
-    private var priceLabel: UILabel = {
+    private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.textColor = Color.font
         label.font = UIFont.boldSystemFont(ofSize: Metrics.fontSize)
@@ -53,7 +53,7 @@ public class ActiveViewCell: UITableViewCell {
         return label
     }()
     
-    private var variationLabel: UILabel = {
+    private lazy var variationLabel: UILabel = {
         let label = UILabel()
         label.textColor = Color.font
         label.font = UIFont.systemFont(ofSize: Metrics.subFontSize)
